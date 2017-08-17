@@ -53,10 +53,15 @@
     <Compile Include="Migrations\201708171325271_AddURL.Designer.cs">
       <DependentUpon>201708171325271_AddURL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708171331467_AddUser.cs" />
+    <Compile Include="Migrations\201708171331467_AddUser.Designer.cs">
+      <DependentUpon>201708171331467_AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Blog.cs" />
     <Compile Include="Model\BloggingContext.cs" />
     <Compile Include="Model\Post.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708171325271_AddURL.resx">
       <DependentUpon>201708171325271_AddURL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708171331467_AddUser.resx">
+      <DependentUpon>201708171331467_AddUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

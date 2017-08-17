@@ -8,6 +8,10 @@ namespace EntityFramework_CodeFirstNewDatabaseSample
 {
     class BloggingContext : DbContext
     {
+        /**
+         * DbContext:
+         * context represents a session with the database, allowing us to query and save data.
+         * */
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }

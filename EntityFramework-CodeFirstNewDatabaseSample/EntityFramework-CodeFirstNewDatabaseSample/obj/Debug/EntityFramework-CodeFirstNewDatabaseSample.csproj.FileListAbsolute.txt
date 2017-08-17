@@ -20,3 +20,4 @@ C:\Users\gsoster\Documents\GitHub\CSharpLab\EntityFramework-CodeFirstNewDatabase
 C:\Users\gsoster\Documents\GitHub\CSharpLab\EntityFramework-CodeFirstNewDatabaseSample\EntityFramework-CodeFirstNewDatabaseSample\obj\Debug\EntityFramework-CodeFirstNewDatabaseSample.pdb
 C:\Users\gsoster\Documents\GitHub\CSharpLab\EntityFramework-CodeFirstNewDatabaseSample\EntityFramework-CodeFirstNewDatabaseSample\obj\Debug\EntityFramework_CodeFirstNewDatabaseSample.Migrations.AddURL.resources
 C:\Users\gsoster\Documents\GitHub\CSharpLab\EntityFramework-CodeFirstNewDatabaseSample\EntityFramework-CodeFirstNewDatabaseSample\obj\Debug\EntityFramework-CodeFirstNewDatabaseSample.csproj.GenerateResource.Cache
+C:\Users\gsoster\Documents\GitHub\CSharpLab\EntityFramework-CodeFirstNewDatabaseSample\EntityFramework-CodeFirstNewDatabaseSample\obj\Debug\EntityFramework_CodeFirstNewDatabaseSample.Migrations.AddUser.resources
