@@ -15,5 +15,15 @@ namespace EntityFramework_CodeFirstNewDatabaseSample
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
+
+        //use of FLUENT API
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .Property(u => u.DisplayName)
+                .HasColumnName("display_name");
+        }
+
+
     }
 }
