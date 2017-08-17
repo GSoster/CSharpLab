@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-namespace EntityFramework_CodeFirstNewDatabaseSample.Model
+namespace EntityFramework_CodeFirstNewDatabaseSample
 {
     class BloggingContext : DbContext
     {
