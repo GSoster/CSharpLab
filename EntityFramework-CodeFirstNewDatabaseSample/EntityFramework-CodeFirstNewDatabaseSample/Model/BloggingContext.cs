@@ -10,5 +10,6 @@ namespace EntityFramework_CodeFirstNewDatabaseSample
     {
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
