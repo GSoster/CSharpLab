@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Cinefilos.Models.Filme>
+
+@{
+    ViewBag.Title = "Filmes";
+}
+
+<h2>Filmes</h2>
+
+<p>
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Cadastrar novo", "Create")
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diretor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sinopse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diretor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sinopse)
+        </td>
+        <td>
+    @if (Request.IsAuthenticated)
+    {
+            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) 
+    }
+@*
+@if (Request.IsAuthenticated)
+{
+            @Html.ActionLink("Adicionar Nota", "AddNota", new { id = item.ID }) 
+}
+*@
+
+
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID })
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Deletar", "Delete", new { id = item.ID })  
+}
+            @*
+
+
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Adicionar Comentário", "AddComment", new { id = item.ID })
+    }
+            *@
+
+
+
+        </td>
+    </tr>
+}
+
+</table>
