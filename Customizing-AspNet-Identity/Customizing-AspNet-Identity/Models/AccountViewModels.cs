@@ -79,6 +79,14 @@ namespace Customizing_AspNet_Identity.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        //added by me
+        [Display (Name ="User Name")]
+        public string Username { get; set; }
+        [Required]
+        public string Nome { get; set; }
+        [Required]
+        public string Lastname { get; set; }
+
     }
 
     public class ResetPasswordViewModel
