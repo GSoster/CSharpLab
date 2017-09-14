@@ -83,7 +83,7 @@ namespace Customizing_AspNet_Identity.Models
         [Display (Name ="User Name")]
         public string Username { get; set; }
         [Required]
-        public string Nome { get; set; }
+        public string Name { get; set; }
         [Required]
         public string Lastname { get; set; }
 
