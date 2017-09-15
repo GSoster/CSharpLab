@@ -10,8 +10,7 @@ namespace Customizing_AspNet_Identity.Models
     public class ApplicationUser : IdentityUser
     {
         public string Name { get; set; }
-        public string Lastname { get; set; }
-        public string Username { get; set; }
+        public string Lastname { get; set; }        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
