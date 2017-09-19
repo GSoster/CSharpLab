@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="btnSearchImageFolder" Content="Search" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListView x:Name="lstvwPhotos" HorizontalAlignment="Left" Height="122" Margin="51,86,0,0" VerticalAlignment="Top" Width="308">
+        <ListView x:Name="lstvwPhotos" HorizontalAlignment="Left" Height="217" Margin="27,57,0,0" VerticalAlignment="Top" Width="413">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
