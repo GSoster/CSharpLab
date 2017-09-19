@@ -67,8 +67,11 @@ namespace PhotoGallery
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);            
             foreach (var p in dirInfo.GetFiles("*.jpg"))
-            {                                
-                PhotoCollection.Add(new Photo() { Extension = p.Extension, Path = p.FullName });
+            {
+                MessageBox.Show(p.FullName);
+                Photo pho = new Photo() { Extension = p.Extension, Path = p.FullName };
+                pho.UpdateImageSource();
+                PhotoCollection.Add(pho);
             }        
             lstvwPhotos.ItemsSource = PhotoCollection;            
         } 
