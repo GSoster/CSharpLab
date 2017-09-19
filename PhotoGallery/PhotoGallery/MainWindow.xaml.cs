@@ -60,13 +60,15 @@ namespace PhotoGallery
             }
         }
 
-
+        /**
+         * Todo: *.jpg está definido diretamente, os tipos de arquivos deveriam estar em uma constante declarada. 
+         **/
         public void LoadImagesInFolder(string path)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);            
             foreach (var p in dirInfo.GetFiles("*.jpg"))
-            {
-                PhotoCollection.Add(new Photo(p.FullName));
+            {                                
+                PhotoCollection.Add(new Photo() { Extension = p.Extension, Path = p.FullName });
             }        
             lstvwPhotos.ItemsSource = PhotoCollection;            
         } 

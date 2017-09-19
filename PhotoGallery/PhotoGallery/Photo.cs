@@ -14,13 +14,16 @@ namespace PhotoGallery
     {
         private readonly Uri _source;
 
-        public string Path { get; }
+        public string Path { get; set; }
         public BitmapFrame Image { get; set; }
-        //Todo: Add above infos later
+        public string Extension { get; set; }
+        //Todo: Add below infos later
         //public Tag[] Tags;//list of tags that this photo has
         //public string fileName;//this one comes from the file
         //public string Title; //this one the user is responsible for creating
 
+
+        public Photo(){}
 
         public Photo(string path)
         {
