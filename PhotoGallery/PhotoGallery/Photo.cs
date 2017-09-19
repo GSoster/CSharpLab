@@ -16,7 +16,10 @@ namespace PhotoGallery
 
         public string Source { get; }
         public BitmapFrame Image { get; set; }
-
+        //Todo: Add above infos later
+        //public Tag[] Tags;//list of tags that this photo has
+        //public string fileName;//this one comes from the file
+        //public string Title; //this one the user is responsible for creating
 
 
         public Photo(string path)

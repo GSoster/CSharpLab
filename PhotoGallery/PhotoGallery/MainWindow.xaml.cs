@@ -56,6 +56,7 @@ namespace PhotoGallery
                 CurrentImageFolderPath = folder.ToString();
                 //Todo: remover linha abaixo.
                 MainWindow.GetWindow(this).Title = folder.ToString();//debug only
+                LoadImagesInFolder(CurrentImageFolderPath);
             }
         }
 
@@ -64,7 +65,14 @@ namespace PhotoGallery
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);
             foreach (var p in dirInfo.GetFiles("*.jpg"))
-                PhotoCollection.Add(new Photo(p.FullName));
+                lstvwPhotos.Items.Add(p.FullName);
+
+            lstvwPhotos.UpdateLayout();
+                    //MessageBox.Show(p.FullName);
+                    //PhotoCollection.Add(new Photo(p.FullName));
+
+            //fulfil listview            
+            //lstvwPhotos.Items.Add("valores");
         } 
 
     }
