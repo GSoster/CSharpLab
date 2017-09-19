@@ -64,15 +64,14 @@ namespace PhotoGallery
         public void LoadImagesInFolder(string path)
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);
+            List<string> fileNames = new List<string>();
             foreach (var p in dirInfo.GetFiles("*.jpg"))
-                lstvwPhotos.Items.Add(p.FullName);
-
-            lstvwPhotos.UpdateLayout();
-                    //MessageBox.Show(p.FullName);
-                    //PhotoCollection.Add(new Photo(p.FullName));
-
-            //fulfil listview            
-            //lstvwPhotos.Items.Add("valores");
+            {
+                // PhotoCollection.Add(new Photo(p.FullName));
+                fileNames.Add(p.FullName);
+            }
+        
+            lstvwPhotos.ItemsSource = fileNames;
         } 
 
     }
