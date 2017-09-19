@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
+
 namespace PhotoGallery
 {
     /// <summary>
@@ -21,6 +24,8 @@ namespace PhotoGallery
     public partial class MainWindow : Window
     {
         private const string DefaultDir = @"C:\";
+        public string CurrentImageFolderPath = string.Empty;
+        public List<Photo> PhotoCollection;
 
         public MainWindow()
         {
@@ -48,9 +53,19 @@ namespace PhotoGallery
             if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 var folder = dlg.FileName;
-                // Do something with selected folder string
-                MainWindow.GetWindow(this).Title = folder.ToString();
+                CurrentImageFolderPath = folder.ToString();
+                //Todo: remover linha abaixo.
+                MainWindow.GetWindow(this).Title = folder.ToString();//debug only
             }
         }
+
+
+        public void LoadImagesInFolder(string path)
+        {
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            foreach (var p in dirInfo.GetFiles("*.jpg"))
+                PhotoCollection.Add(new Photo(p.FullName));
+        } 
+
     }
 }
