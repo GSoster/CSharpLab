@@ -25,7 +25,7 @@ namespace PhotoGallery
     {
         private const string DefaultDir = @"C:\";
         public string CurrentImageFolderPath = string.Empty;
-        public List<Photo> PhotoCollection;
+        public List<Photo> PhotoCollection = new List<Photo>();
 
         public MainWindow()
         {
@@ -63,15 +63,12 @@ namespace PhotoGallery
 
         public void LoadImagesInFolder(string path)
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            List<string> fileNames = new List<string>();
+            DirectoryInfo dirInfo = new DirectoryInfo(path);            
             foreach (var p in dirInfo.GetFiles("*.jpg"))
             {
-                // PhotoCollection.Add(new Photo(p.FullName));
-                fileNames.Add(p.FullName);
-            }
-        
-            lstvwPhotos.ItemsSource = fileNames;
+                PhotoCollection.Add(new Photo(p.FullName));
+            }        
+            lstvwPhotos.ItemsSource = PhotoCollection;            
         } 
 
     }

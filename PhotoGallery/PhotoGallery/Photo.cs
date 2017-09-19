@@ -14,7 +14,7 @@ namespace PhotoGallery
     {
         private readonly Uri _source;
 
-        public string Source { get; }
+        public string Path { get; }
         public BitmapFrame Image { get; set; }
         //Todo: Add above infos later
         //public Tag[] Tags;//list of tags that this photo has
@@ -24,7 +24,7 @@ namespace PhotoGallery
 
         public Photo(string path)
         {
-            Source = path;
+            Path = path;
             _source = new Uri(path);
             Image = BitmapFrame.Create(_source);
         }
