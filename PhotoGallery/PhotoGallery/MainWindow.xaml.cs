@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Microsoft.WindowsAPICodePack.Dialogs;
 namespace PhotoGallery
 {
     /// <summary>
@@ -20,9 +20,37 @@ namespace PhotoGallery
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string DefaultDir = @"C:\";
+
         public MainWindow()
         {
             InitializeComponent();
+            btnSearchImageFolder.Click += SearchImageFolder;
+        }
+
+        private void SearchImageFolder(object sender, RoutedEventArgs e)
+        {
+            var dlg = new CommonOpenFileDialog();
+            dlg.Title = "Search Photos";
+            dlg.IsFolderPicker = true;
+            dlg.InitialDirectory = DefaultDir;
+
+            dlg.AddToMostRecentlyUsedList = false;
+            dlg.AllowNonFileSystemItems = false;
+            dlg.DefaultDirectory = DefaultDir;
+            dlg.EnsureFileExists = true;
+            dlg.EnsurePathExists = true;
+            dlg.EnsureReadOnly = false;
+            dlg.EnsureValidNames = true;
+            dlg.Multiselect = false;
+            dlg.ShowPlacesList = true;
+
+            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var folder = dlg.FileName;
+                // Do something with selected folder string
+                MainWindow.GetWindow(this).Title = folder.ToString();
+            }
         }
     }
 }
