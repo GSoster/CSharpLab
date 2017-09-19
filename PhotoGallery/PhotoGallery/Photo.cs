@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+
 namespace PhotoGallery
 {
     /// <summary>
@@ -13,33 +14,27 @@ namespace PhotoGallery
     /// </summary>
     public class Photo
     {
-        private readonly Uri _source;
-
+        
+        public ImageSource Image { get; }        
+        public string Extension { get; }
         public string Path { get; set; }
-        public BitmapFrame Image { get; set; }
-        public string Extension { get; set; }
-
-        public ImageSource myImageSource { get; set; }
+        private readonly Uri _source;
+        public string FileName { get; }//this one comes from the file
         //Todo: Add below infos later
         //public Tag[] Tags;//list of tags that this photo has
-        //public string fileName;//this one comes from the file
+        
         //public string Title; //this one the user is responsible for creating
 
-
-        public Photo(){            
-        }
-
+        
         public Photo(string path)
         {
             Path = path;
             _source = new Uri(path);
-            Image = BitmapFrame.Create(_source);
+            Image = new BitmapImage(new Uri(path));
+            FileName = System.IO.Path.GetFileName(path);
+            Extension = System.IO.Path.GetExtension(path);
         }
-
-        public void UpdateImageSource()
-        {
-            myImageSource = new BitmapImage(new Uri(Path));
-        }
+        
 
         public override string ToString()
         {

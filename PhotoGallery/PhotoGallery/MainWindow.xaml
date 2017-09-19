@@ -18,7 +18,7 @@
                         <TextBlock Text="Extension: (" />
                         <TextBlock Text="{Binding Extension}" FontWeight="Bold" />
                         <TextBlock Text=" )" />
-                        <Image Width="10" Height="10" Stretch="Fill" Source="{Binding myImageSource}"/>
+                        <Image Width="10" Height="10" Stretch="Fill" Source="{Binding Image}"/>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

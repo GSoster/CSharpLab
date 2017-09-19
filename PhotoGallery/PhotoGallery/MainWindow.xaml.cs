@@ -23,7 +23,7 @@ namespace PhotoGallery
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string DefaultDir = @"C:\";
+        private const string DefaultDir = @"C:\Users\gsoster\Pictures\projects";//debug only
         public string CurrentImageFolderPath = string.Empty;
         public List<Photo> PhotoCollection = new List<Photo>();
 
@@ -67,11 +67,8 @@ namespace PhotoGallery
         {
             DirectoryInfo dirInfo = new DirectoryInfo(path);            
             foreach (var p in dirInfo.GetFiles("*.jpg"))
-            {
-                MessageBox.Show(p.FullName);
-                Photo pho = new Photo() { Extension = p.Extension, Path = p.FullName };
-                pho.UpdateImageSource();
-                PhotoCollection.Add(pho);
+            {                                
+                PhotoCollection.Add(new Photo(p.FullName));
             }        
             lstvwPhotos.ItemsSource = PhotoCollection;            
         } 
