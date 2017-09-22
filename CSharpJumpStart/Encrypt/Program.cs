@@ -76,10 +76,27 @@ namespace Encrypt
             {
                 Console.WriteLine("Passwords Match!");
             }
+            #endregion
 
+            /*
+             * Symmetric Encryption
+             * - One key is used for both encryption and decryption
+             * - Faster than Asymmetric encryption
+             * - Cryptography namespace includes five symmetric algorithms:
+             *   - Aes (recommended)
+             *   - DES
+             *   - RC2
+             *   - Rijndael (basically the same as Aes but allows weaker keys)
+             *   - TripleDES
+             */
+            #region Symmetric Encryption
 
 
             #endregion
+
+            /*
+             * Asymmetric (or Public Key) Encryption
+             */ 
 
         }
     }
