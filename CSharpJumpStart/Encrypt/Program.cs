@@ -52,6 +52,35 @@ namespace Encrypt
 
             #endregion
 
+
+            /*
+             * Hashing
+             * - One-way encryption
+             * - Fast 
+             * - Used for storing passwords, comparing files, data corruption/tamper checking
+             */
+            #region Hashing
+            //this represents a hashed passwod stored in a database
+            var storedPasswordHash = new byte[]
+                {
+                    148, 152, 235, 251, 242, 51, 18, 100, 176, 51, 147,
+                    249, 128, 175, 164, 106, 204, 48, 47, 154, 75, 82,
+                    83, 170, 111, 8, 107, 51, 13, 83, 2, 252
+                };
+
+            var password = Encoding.Unicode.GetBytes("P4ssw0rd!");
+            var passwordHash = SHA256.Create().ComputeHash(password);
+
+            // nice convenient method - can also supply a custom comparator
+            if (passwordHash.SequenceEqual(storedPasswordHash))
+            {
+                Console.WriteLine("Passwords Match!");
+            }
+
+
+
+            #endregion
+
         }
     }
 }
