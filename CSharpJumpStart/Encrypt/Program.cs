@@ -90,14 +90,67 @@ namespace Encrypt
              *   - TripleDES
              */
             #region Symmetric Encryption
+            // Uses Rijndael as an algorithm
+            // two classes Rijndael and Aes - use Aes (more secure)
 
+            // array of 16 random bytes - must be used for decryption - 
+            // should be secret
+            var key = new byte[] { 12, 2, 56, 117, 12, 67, 33, 23, 12, 2, 56, 117, 12, 67, 33, 23 };
+
+            // another list of 16 bytes - can be shared publically,
+            // should be changed for each message exchange
+            var initializationVector = new byte[] { 37, 99, 102, 23, 12, 22, 156, 204, 11, 12, 23, 44, 55, 1, 157, 233 };
+
+            byte[] symEncryptedData;
+
+            //save for reuse
+            var algorithm = Aes.Create();
+
+            // Encrypt
+            using (var encryptor = algorithm.CreateEncryptor(key, initializationVector))
+            using (var memoryStream = new MemoryStream())
+            using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+            {
+                //pass the data that we want to protect to the memory (memoryStream)
+                cryptoStream.Write(dataToProtectArray, 0, dataToProtectArray.Length);
+                cryptoStream.FlushFinalBlock();
+                symEncryptedData = memoryStream.ToArray();
+
+
+            }
+
+            // Decrypt
+            byte[] symUnEncryptedData;
+            using (var decryptor = algorithm.CreateDecryptor(key, initializationVector))
+            using (var memoryStream = new MemoryStream())
+            using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Write))
+            {
+                cryptoStream.Write(symEncryptedData, 0, symEncryptedData.Length);
+                cryptoStream.FlushFinalBlock();
+                symUnEncryptedData = memoryStream.ToArray();
+            }
+
+            algorithm.Dispose();
+
+            if (dataToProtectArray.SequenceEqual(symUnEncryptedData))
+            {
+                Console.WriteLine("Symmetric encrypted values match!");
+            }
 
             #endregion
 
-            /*
-             * Asymmetric (or Public Key) Encryption
-             */ 
-
+                /*
+                 * Asymmetric (or Public Key) Encryption
+                 * - one key is used for encryption and another key for decryption
+                 * - commonly used for digital signatures
+                 * - Cryptography namespace include four asymmetric algorithms:
+                 *   - DSA
+                 *   - ECDiffieHellman
+                 *   - EDCsa
+                 *   - RSA (most popular)
+                 */
+                #region Asymmetric Encryption
+                #endregion
         }
     }
 }
