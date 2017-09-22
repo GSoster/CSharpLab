@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encrypt", "Encrypt\Encrypt.csproj", "{67F2A002-C5CC-4217-83FB-0E1DCA90AB8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContracts", "DataContracts\DataContracts.csproj", "{0609D461-2CEE-47EE-83CE-1C5768626A73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderstandingLINQ", "UnderstandingLINQ\UnderstandingLINQ.csproj", "{AC728CD6-8FAB-4C1F-9927-31C2675116A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{67F2A002-C5CC-4217-83FB-0E1DCA90AB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F2A002-C5CC-4217-83FB-0E1DCA90AB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67F2A002-C5CC-4217-83FB-0E1DCA90AB8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0609D461-2CEE-47EE-83CE-1C5768626A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0609D461-2CEE-47EE-83CE-1C5768626A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0609D461-2CEE-47EE-83CE-1C5768626A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0609D461-2CEE-47EE-83CE-1C5768626A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC728CD6-8FAB-4C1F-9927-31C2675116A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC728CD6-8FAB-4C1F-9927-31C2675116A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC728CD6-8FAB-4C1F-9927-31C2675116A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC728CD6-8FAB-4C1F-9927-31C2675116A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
