@@ -139,18 +139,53 @@ namespace Encrypt
 
             #endregion
 
-                /*
-                 * Asymmetric (or Public Key) Encryption
-                 * - one key is used for encryption and another key for decryption
-                 * - commonly used for digital signatures
-                 * - Cryptography namespace include four asymmetric algorithms:
-                 *   - DSA
-                 *   - ECDiffieHellman
-                 *   - EDCsa
-                 *   - RSA (most popular)
-                 */
-                #region Asymmetric Encryption
-                #endregion
+            /*
+             * Asymmetric (or Public Key) Encryption
+             * - one key is used for encryption and another key for decryption
+             * - commonly used for digital signatures
+             * - Cryptography namespace include four asymmetric algorithms:
+             *   - DSA
+             *   - ECDiffieHellman
+             *   - EDCsa
+             *   - RSA (most popular)
+             */
+            #region Asymmetric Encryption
+            byte[] signature;
+            byte[] publicAndPrivateKey;
+            byte[] publicKeyOnly;
+            var hashImplementation = SHA1.Create();
+
+            // create a signature, create our public and private keys - we could save these out as XML, etc.
+            using (var rsaProvider = new RSACryptoServiceProvider())
+            {
+                signature = rsaProvider.SignData(dataToProtectArray, hashImplementation);
+                publicAndPrivateKey = rsaProvider.ExportCspBlob(true);
+                publicKeyOnly = rsaProvider.ExportCspBlob(false);
+            }
+
+            // create a new RSA
+            using (var rsaProvider = new RSACryptoServiceProvider())
+            {
+                // import our public key
+                rsaProvider.ImportCspBlob(publicKeyOnly);
+
+                // has it been tampered with?
+                if (!rsaProvider.VerifyData(dataToProtectArray, hashImplementation, signature))
+                {
+                    Console.WriteLine("Data has been tampered with");
+                }
+
+                // now let's tamper with our data
+
+                dataToProtectArray[5] = 255;
+                if (!rsaProvider.VerifyData(dataToProtectArray, hashImplementation, signature))
+                {
+                    Console.WriteLine("Data has been tampered with");
+                }
+            }
+
+            hashImplementation.Dispose();
+            #endregion
         }
     }
 }
