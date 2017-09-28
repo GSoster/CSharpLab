@@ -23,7 +23,7 @@ namespace PhotoGallery
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string DefaultDir = Environment.GetFolderPath(Environment.SpecialFolder.System);
+        private string DefaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
         public string CurrentImageFolderPath = string.Empty;
         public List<Photo> PhotoCollection = new List<Photo>();
 
