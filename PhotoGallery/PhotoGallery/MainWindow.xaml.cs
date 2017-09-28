@@ -45,6 +45,7 @@ namespace PhotoGallery
                 CurrentImageFolderPath = folder.ToString();
                 //Todo: remover linha abaixo.
                 MainWindow.GetWindow(this).Title = folder.ToString();//debug only
+
                 LoadImagesInFolder(CurrentImageFolderPath);
             }
         }
@@ -54,20 +55,10 @@ namespace PhotoGallery
          **/
         public void LoadImagesInFolder(string path)
         {
-            /*
-            DirectoryInfo dirInfo = new DirectoryInfo(path);            
-            foreach (var p in dirInfo.GetFiles("*.jpg"))
-            {                                
-                PhotoCollection.Add(new Photo(p.FullName));
-            }        
-            */
-
-            //
-            var list = FileHandler.GetAllFilesFromPath(path, "*.jpg");
+            var list = FileHandler.GetAllFilesFromPathByExtension(path, "jpg");
             foreach(var file in list)
                 PhotoCollection.Add(new Photo(file.FullName));
-            //
-
+           
             lstvwPhotos.ItemsSource = PhotoCollection;            
         } 
 

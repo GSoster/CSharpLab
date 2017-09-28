@@ -8,12 +8,15 @@ namespace PhotoGallery.Util
 {
     static class FileHandler
     {
-
-        //Todo: If first two char from extension is not *. it should be added to the extension received.
-        public static List<FileInfo> GetAllFilesFromPath(string path, string extension = "jpg")
+        
+        public static List<FileInfo> GetAllFilesFromPathByExtension(string path, string extension = "jpg")
         {
             List<FileInfo> files = new List<FileInfo>();
             DirectoryInfo dirInfo = new DirectoryInfo(path);
+
+            if (extension[0] != '*')
+                extension = "*." + extension;
+
             foreach (var p in dirInfo.GetFiles(extension))
             {
                 files.Add(p);
