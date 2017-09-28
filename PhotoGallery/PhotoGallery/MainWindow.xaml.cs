@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
-
+using PhotoGallery.Model;
+using PhotoGallery.Util;
 namespace PhotoGallery
 {
     /// <summary>
@@ -65,11 +54,20 @@ namespace PhotoGallery
          **/
         public void LoadImagesInFolder(string path)
         {
+            /*
             DirectoryInfo dirInfo = new DirectoryInfo(path);            
             foreach (var p in dirInfo.GetFiles("*.jpg"))
             {                                
                 PhotoCollection.Add(new Photo(p.FullName));
             }        
+            */
+
+            //
+            var list = FileHandler.GetAllFilesFromPath(path, "*.jpg");
+            foreach(var file in list)
+                PhotoCollection.Add(new Photo(file.FullName));
+            //
+
             lstvwPhotos.ItemsSource = PhotoCollection;            
         } 
 

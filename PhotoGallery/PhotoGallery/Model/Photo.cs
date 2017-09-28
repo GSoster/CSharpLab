@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 
-namespace PhotoGallery
+namespace PhotoGallery.Model
 {
     /// <summary>
     ///     This class describes a single photo - its location, the image.
