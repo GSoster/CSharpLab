@@ -28,6 +28,7 @@
                 </GridView>
             </ListView.View>-->
         </ListView>
+        <Label Content="" HorizontalAlignment="Left" Margin="109,21,0,0" VerticalAlignment="Top" Name="lblQuantityPicturesDisplyed"/>
 
     </Grid>
 </Window>

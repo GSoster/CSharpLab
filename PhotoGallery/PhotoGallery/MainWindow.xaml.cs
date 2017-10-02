@@ -15,6 +15,7 @@ namespace PhotoGallery
         private string DefaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
         public string CurrentImageFolderPath = string.Empty;
         public List<Photo> PhotoCollection = new List<Photo>();
+        public Collection UnamedPhotoCollection = new Collection();
 
         public MainWindow()
         {
@@ -52,14 +53,18 @@ namespace PhotoGallery
 
         /**
          * Todo: *.jpg está definido diretamente, os tipos de arquivos deveriam estar em uma constante declarada. 
+         * Todo: Remove the commented lines that work with PhotoCollection, that is no more needed.
          **/
         public void LoadImagesInFolder(string path)
         {
             var list = FileHandler.GetAllFilesFromPathByExtension(path, "jpg");
-            foreach(var file in list)
-                PhotoCollection.Add(new Photo(file.FullName));
-           
-            lstvwPhotos.ItemsSource = PhotoCollection;            
+            foreach (var file in list)
+                UnamedPhotoCollection.PhotoList.Add(new Photo(file.FullName));
+
+            lblQuantityPicturesDisplyed.Content = UnamedPhotoCollection.GetCollectionSize();
+            //PhotoCollection.Add(new Photo(file.FullName));
+            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;
+            //lstvwPhotos.ItemsSource = PhotoCollection;
         } 
 
     }

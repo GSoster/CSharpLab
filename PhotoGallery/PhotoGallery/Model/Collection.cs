@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoGallery.Model
 {
-    class Collection
+    public class Collection
     {
         public List<Photo> PhotoList{ get; set; }
         public List<Tag> TagList{ get; set; }
@@ -22,5 +22,20 @@ namespace PhotoGallery.Model
                 _InternalName = value.ToLower();
             }
         }
+
+
+        public Collection(string name = "unamed collection")
+        {
+            Name = name;
+            InternalName = name;
+            TagList = new List<Tag>();
+            PhotoList = new List<Photo>();
+        }
+
+        public int GetCollectionSize()
+        {
+            return PhotoList.Count;
+        }
+
     }
 }
