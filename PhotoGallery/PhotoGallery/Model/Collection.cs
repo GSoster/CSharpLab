@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace PhotoGallery.Model
 {
-    public class Tag
+    class Collection
     {
-        public int Id { get; set; }
-        public string Name { get; set; }//the name displayed to user
-        public string Description { get; set; }
-        string _InternalName; // it is used to sort/filter should always be lowercase
-        public string InternalName {
+        public List<Photo> PhotoList{ get; set; }
+        public List<Tag> TagList{ get; set; }
+        public string Name { get; set; }//display name
+        string _InternalName;
+        public string InternalName
+        {
             get { return _InternalName.ToLower(); }
             set
             {

@@ -21,13 +21,14 @@ namespace PhotoGallery.Model
         private readonly Uri _source;
         public string FileName { get; }//this one comes from the file
         //Todo: Add below infos later
-        //public Tag[] Tags;//list of tags that this photo has
-        
-        //public string Title; //this one the user is responsible for creating
+        public List<Tag> TagList { get; set; }//list of tags that this photo has
 
-        
+        //public string Name; //this one the user is responsible for creating
+
+
         public Photo(string path)
         {
+            TagList = new List<Tag>();
             Path = path;
             _source = new Uri(path);
             Image = new BitmapImage(new Uri(path));
