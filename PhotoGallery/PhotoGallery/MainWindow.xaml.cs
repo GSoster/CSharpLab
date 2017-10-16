@@ -70,6 +70,9 @@ namespace PhotoGallery
             //lstvwPhotos.ItemsSource = PhotoCollection;
         }
 
+        /**
+         * Todo: it is necessary to set the isCurrent attribute of this image (sender) as true!
+         */
         private void SetAsCurrentDisplayedImage(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Image img = (Image)sender;
