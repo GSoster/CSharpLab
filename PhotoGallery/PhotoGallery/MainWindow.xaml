@@ -16,7 +16,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--<WrapPanel >-->
+                        <!--<WrapPanel >-->                        
                         <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Image}"
                                ToolTipService.InitialShowDelay="1000" 
                                ToolTipService.ShowDuration="2000" 
