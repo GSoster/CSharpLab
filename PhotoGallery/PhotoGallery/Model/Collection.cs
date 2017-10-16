@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PhotoGallery.Model
 {
-    public class Collection
+    public class Collection : ObservableCollection<Photo>
     {
         public List<Photo> PhotoList{ get; set; }
         public List<Tag> TagList{ get; set; }
@@ -36,6 +38,7 @@ namespace PhotoGallery.Model
         {
             return PhotoList.Count;
         }
+        
 
     }
 }
