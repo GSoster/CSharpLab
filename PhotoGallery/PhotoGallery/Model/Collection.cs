@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace PhotoGallery.Model
 {
     public class Collection : ObservableCollection<Photo>
-    {
-        public List<Photo> PhotoList{ get; set; }
+    {        
         public List<Tag> TagList{ get; set; }
         public string Name { get; set; }//display name
         string _InternalName;
@@ -21,7 +20,7 @@ namespace PhotoGallery.Model
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentNullException();
-                _InternalName = value.ToLower();
+                _InternalName = value.ToLower().Replace(" ","");//no spaces or upper case letters allowed
             }
         }
 
@@ -30,13 +29,12 @@ namespace PhotoGallery.Model
         {
             Name = name;
             InternalName = name;
-            TagList = new List<Tag>();
-            PhotoList = new List<Photo>();
+            TagList = new List<Tag>();            
         }
 
         public int GetCollectionSize()
         {
-            return PhotoList.Count;
+            return this.Count;            
         }
         
 

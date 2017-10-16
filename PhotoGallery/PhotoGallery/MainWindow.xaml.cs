@@ -14,9 +14,11 @@ namespace PhotoGallery
     public partial class MainWindow : Window
     {
         private string DefaultDir = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-        public string CurrentImageFolderPath = string.Empty;
-        public List<Photo> PhotoCollection = new List<Photo>();
+        public string CurrentImageFolderPath = string.Empty;        
         public Collection UnamedPhotoCollection = new Collection();
+        
+        //Todo: PhotoCollection probably should be replaced by Collection, do it when start to work with photoCollection
+        //public List<Photo> PhotoCollection = new List<Photo>();
 
         public MainWindow()
         {
@@ -60,12 +62,10 @@ namespace PhotoGallery
         {
             var list = FileHandler.GetAllFilesFromPathByExtension(path, "jpg");
             foreach (var file in list)
-                UnamedPhotoCollection.PhotoList.Add(new Photo(file.FullName));
+                UnamedPhotoCollection.Add(new Photo(file.FullName));                
 
             lblQuantityPicturesDisplyed.Content = "Images in current collection: " + UnamedPhotoCollection.GetCollectionSize();
-            //PhotoCollection.Add(new Photo(file.FullName));
-            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;               
-            //lstvwPhotos.ItemsSource = PhotoCollection;
+            lstvwPhotos.ItemsSource = UnamedPhotoCollection;            
         }
 
         /**

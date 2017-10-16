@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="btnSearchImageFolder" Content="Search" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnSearchImageFolder" Content="Import" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
         <ListView x:Name="lstvwPhotos" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="27,198,0,0" VerticalAlignment="Top" Width="413" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
