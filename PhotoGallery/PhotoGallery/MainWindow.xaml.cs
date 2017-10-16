@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using System.IO;
 using PhotoGallery.Model;
 using PhotoGallery.Util;
-using System.Windows.Media;
 using System.Windows.Controls;
 
 namespace PhotoGallery
@@ -66,7 +64,7 @@ namespace PhotoGallery
 
             lblQuantityPicturesDisplyed.Content = "Images in current collection: " + UnamedPhotoCollection.GetCollectionSize();
             //PhotoCollection.Add(new Photo(file.FullName));
-            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;            
+            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;               
             //lstvwPhotos.ItemsSource = PhotoCollection;
         }
 
