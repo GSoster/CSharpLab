@@ -17,13 +17,16 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!--<WrapPanel >-->
-                    <Image Width="30" Height="76" Stretch="Fill"
+                    <Image 
                            Source="{Binding Image}"
                            ToolTipService.InitialShowDelay="1000" 
                            ToolTipService.ShowDuration="2000" 
                            ToolTipService.BetweenShowDelay="1000" 
                            ToolTip="{Binding Path}"
-                           MouseLeftButtonDown="SetAsCurrentDisplayedImage"/>
+                           MouseLeftButtonDown="SetAsCurrentDisplayedImage"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           />
                     <!--</WrapPanel>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
