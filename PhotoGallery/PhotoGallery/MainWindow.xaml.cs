@@ -63,7 +63,7 @@ namespace PhotoGallery
 
             lblQuantityPicturesDisplyed.Content = UnamedPhotoCollection.GetCollectionSize();
             //PhotoCollection.Add(new Photo(file.FullName));
-            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;
+            lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;            
             //lstvwPhotos.ItemsSource = PhotoCollection;
         } 
 

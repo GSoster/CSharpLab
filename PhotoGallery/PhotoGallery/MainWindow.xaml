@@ -9,23 +9,23 @@
     <Grid>
         <Button x:Name="btnSearchImageFolder" Content="Search" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
         <ListView x:Name="lstvwPhotos" HorizontalAlignment="Left" Height="217" Margin="27,57,0,0" VerticalAlignment="Top" Width="413">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
+                    <DataTemplate>
+                        <!--<WrapPanel >-->
                         <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Image}"
                                ToolTipService.InitialShowDelay="1000" 
                                ToolTipService.ShowDuration="2000" 
                                ToolTipService.BetweenShowDelay="1000" 
                                ToolTip="{Binding Path}"
                                />
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <!--<ListView.View>
-                <GridView>
-                    <GridViewColumn Header="FullName" DisplayMemberBinding="{Binding Path=Fullname}"/>
-                </GridView>
-            </ListView.View>-->
+                        <!--</WrapPanel>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
         </ListView>
         <Label Content="" HorizontalAlignment="Left" Margin="109,21,0,0" VerticalAlignment="Top" Name="lblQuantityPicturesDisplyed"/>
 
