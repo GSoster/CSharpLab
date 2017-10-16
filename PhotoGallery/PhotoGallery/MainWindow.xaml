@@ -12,13 +12,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <TextBlock Text="path: " />
-                        <TextBlock Text="{Binding Path}" FontWeight="Bold" />
-                        <TextBlock Text=", " />
-                        <TextBlock Text="Extension: (" />
-                        <TextBlock Text="{Binding Extension}" FontWeight="Bold" />
-                        <TextBlock Text=" )" />
-                        <Image Width="10" Height="10" Stretch="Fill" Source="{Binding Image}"/>
+                        <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Image}"
+                               ToolTipService.InitialShowDelay="1000" 
+                               ToolTipService.ShowDuration="2000" 
+                               ToolTipService.BetweenShowDelay="1000" 
+                               ToolTip="{Binding Path}"
+                               />
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
