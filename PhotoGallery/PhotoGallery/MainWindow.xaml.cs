@@ -5,6 +5,9 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
 using PhotoGallery.Model;
 using PhotoGallery.Util;
+using System.Windows.Media;
+using System.Windows.Controls;
+
 namespace PhotoGallery
 {
     /// <summary>
@@ -65,7 +68,14 @@ namespace PhotoGallery
             //PhotoCollection.Add(new Photo(file.FullName));
             lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;            
             //lstvwPhotos.ItemsSource = PhotoCollection;
-        } 
+        }
 
+        private void SetAsCurrentDisplayedImage(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Image img = (Image)sender;
+            imgCurrentDisplayedImage.Source = img.Source;
+            imgCurrentDisplayedImage.UpdateLayout();
+            //imgCurrentImage
+        }
     }
 }

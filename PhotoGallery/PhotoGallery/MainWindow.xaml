@@ -8,26 +8,27 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="btnSearchImageFolder" Content="Search" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListView x:Name="lstvwPhotos" HorizontalAlignment="Left" Height="217" Margin="27,57,0,0" VerticalAlignment="Top" Width="413">
+        <ListView x:Name="lstvwPhotos" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="27,198,0,0" VerticalAlignment="Top" Width="413">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<WrapPanel >-->                        
-                        <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Image}"
+                <DataTemplate>
+                    <!--<WrapPanel >-->
+                    <Image Width="30" Height="30" Stretch="Fill" Source="{Binding Image}"
                                ToolTipService.InitialShowDelay="1000" 
                                ToolTipService.ShowDuration="2000" 
                                ToolTipService.BetweenShowDelay="1000" 
                                ToolTip="{Binding Path}"
-                               />
-                        <!--</WrapPanel>-->
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                               MouseLeftButtonDown="SetAsCurrentDisplayedImage"/>
+                    <!--</WrapPanel>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Label Content="" HorizontalAlignment="Left" Margin="109,21,0,0" VerticalAlignment="Top" Name="lblQuantityPicturesDisplyed"/>
+        <Image Name="imgCurrentDisplayedImage" HorizontalAlignment="Left" Height="126" Margin="109,47,0,0" VerticalAlignment="Top" Width="262"/>
 
     </Grid>
 </Window>
