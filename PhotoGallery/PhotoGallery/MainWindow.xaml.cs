@@ -64,7 +64,7 @@ namespace PhotoGallery
             foreach (var file in list)
                 UnamedPhotoCollection.PhotoList.Add(new Photo(file.FullName));
 
-            lblQuantityPicturesDisplyed.Content = UnamedPhotoCollection.GetCollectionSize();
+            lblQuantityPicturesDisplyed.Content = "Images in current collection: " + UnamedPhotoCollection.GetCollectionSize();
             //PhotoCollection.Add(new Photo(file.FullName));
             lstvwPhotos.ItemsSource = UnamedPhotoCollection.PhotoList;            
             //lstvwPhotos.ItemsSource = PhotoCollection;
