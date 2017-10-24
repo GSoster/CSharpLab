@@ -6,4 +6,6 @@ A repository to store my C# codes and annotations
 
 - [x] **ASP.NET Identity**: A very simple example of how to customize user fields in the new ASPNET Identity. [link](http://www.eduardopires.net.br/2014/03/asp-net-identity-customizando-cadastro-usuarios/)  
   
+- [x] **CSharpJumpStart**: Group of codes and samples from the Microsoft course: programming in C Sharp Jump start. [link](https://mva.microsoft.com/en-us/training-courses/programming-in-c-jump-start-14254)  
+  
 - [ ] **PhotoGallery**: A simple WPF project that allows to load pictures, add them to collections (albums), tag albums and individual pictures and search by picture/collection/tag name. Work still in progress.
