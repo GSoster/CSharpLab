@@ -18,10 +18,10 @@ namespace Cinefilos.Models
         public string Diretor { get; set; }
         public string Sinopse { get; set; }
         
-        public Dictionary<string, int> Nota = new Dictionary<string, int>();
+        //public Dictionary<string, int> Nota = new Dictionary<string, int>();
         public int NotaTemp{ get; set; }
         //foreign key
-        //public virtual ICollection<Comentario> Comentarios{ get; set; }
+        public virtual ICollection<Comentario> Comentarios{ get; set; }
 
         //terminar amanhã<<<<<<<<<<<<<<<<<<<<<<<<
 
