@@ -12,6 +12,7 @@ namespace Cinefilos.Models
         public int ID { get; set; }
         public string Texto { get; set; }
         public string Email{ get; set; } //vira de ApplicationUser
+        public DateTime Date { get; set; }
         //public ApplicationUser User { get; set; }
 
 
