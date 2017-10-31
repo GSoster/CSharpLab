@@ -76,40 +76,41 @@ namespace Cinefilos.Controllers
         }
 
         // GET: Filmes/AddNota/5
-       /* public ActionResult AddNota(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Filme filme = db.Filmes.Find(id);
-            if (filme == null)
-            {
-                return HttpNotFound();
-            }
-            return View(filme);
-        }
+        /* public ActionResult AddNota(int? id)
+         {
+             if (id == null)
+             {
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+             }
+             Filme filme = db.Filmes.Find(id);
+             if (filme == null)
+             {
+                 return HttpNotFound();
+             }
+             return View(filme);
+         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddNota([Bind(Include = "ID,Nome,Ano,Categoria,Diretor,Sinopse, NotaTemp")] Filme filme)        
-        {
-            if (ModelState.IsValid)
-            {
-                string currentUserId = User.Identity.GetUserId();
-                ApplicationUser currentUser = userDb.Users.FirstOrDefault(x => x.Id == currentUserId);
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public ActionResult AddNota([Bind(Include = "ID,Nome,Ano,Categoria,Diretor,Sinopse, NotaTemp")] Filme filme)        
+         {
+             if (ModelState.IsValid)
+             {
+                 string currentUserId = User.Identity.GetUserId();
+                 ApplicationUser currentUser = userDb.Users.FirstOrDefault(x => x.Id == currentUserId);
 
-                filme.Nota.Add(currentUser.Email, filme.NotaTemp);
-                db.Entry(filme).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(filme);
-        }
-        */
+                 filme.Nota.Add(currentUser.Email, filme.NotaTemp);
+                 db.Entry(filme).State = EntityState.Modified;
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+             return View(filme);
+         }
+         */
 
         // GET: Filmes/AddNota/5
-       /* public ActionResult AddComment(int? id)
+        //movie ID
+        public ActionResult AddComment(int? id)
         {
             if (id == null)
             {
@@ -122,7 +123,7 @@ namespace Cinefilos.Controllers
             }
             return View(filme);
         }
-
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddComment([Bind(Include = "ID,Nome,Ano,Categoria,Diretor,Sinopse, Comment")] Filme filme)
