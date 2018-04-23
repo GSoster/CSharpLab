@@ -12,14 +12,14 @@ namespace PhotoGallery.Model
     /// <summary>
     ///     This class describes a single photo - its location, the image.
     /// </summary>
-    public class Photo
+    public class Photo : Media
     {
         
         public ImageSource Image { get; }        
-        public string Extension { get; }
-        public string Path { get; set; }
+        //public string Extension { get; }
+        //public string Path { get; set; }
         private readonly Uri _source;
-        public string FileName { get; }//this one comes from the file
+        //public string FileName { get; }//this one comes from the file
         public bool isCurrent;//if this image is the current being displayed
         //Todo: Add below infos later
         public List<Tag> TagList { get; set; }//list of tags that this photo has
@@ -27,15 +27,15 @@ namespace PhotoGallery.Model
         //public string Name; //this one the user is responsible for creating
 
 
-        public Photo(string path)
+        public Photo(string path) : base(path)
         {
             isCurrent = false;
             TagList = new List<Tag>();
-            Path = path;
+            //Path = path;
             _source = new Uri(path);
             Image = new BitmapImage(new Uri(path));
-            FileName = System.IO.Path.GetFileName(path);
-            Extension = System.IO.Path.GetExtension(path);
+            //FileName = System.IO.Path.GetFileName(path);
+            //Extension = System.IO.Path.GetExtension(path);
         }
         
 

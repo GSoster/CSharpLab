@@ -61,6 +61,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Collection.cs" />
+    <Compile Include="Model\IMedia.cs" />
+    <Compile Include="Model\ITaggable.cs" />
+    <Compile Include="Model\Media.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Util\FileHandler.cs" />
     <Page Include="MainWindow.xaml">
