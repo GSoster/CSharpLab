@@ -29,8 +29,12 @@ namespace WindowsForms_Calc
 
         private void UpdateStack ()
         {
-            
-            lblStack.Text = Calc.Stack.ToString();
+            string textToDisplay = "teste";
+            foreach(string elem in Calc.Stack)
+            {
+                textToDisplay += elem;
+            }
+            lblStack.Text = textToDisplay;
         }
 
         private void btnSub_Click(object sender, EventArgs e)
