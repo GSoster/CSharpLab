@@ -13,6 +13,7 @@ namespace WindowsForms_Calc
     public partial class Form1 : Form
     {
         public Calc Calculator;
+        public double total = 0;
 
         public Form1()
         {
@@ -43,6 +44,11 @@ namespace WindowsForms_Calc
             int current = Int32.Parse(txtInput.Text);
             lblTotal.Text = Calc.Sub(total, current).ToString();
             UpdateStack();
+        }
+
+        private void btnMult_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
