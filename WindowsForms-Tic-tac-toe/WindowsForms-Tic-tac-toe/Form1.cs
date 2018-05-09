@@ -21,6 +21,32 @@ namespace WindowsForms_Tic_tac_toe
             InitializeComponent();
         }
 
+        private bool CheckPlacement(object btn)
+        {
+            return ((Button)btn).Text == string.Empty;
+        }
+
+        private void UpdateUIInfo()
+        {
+            if (isPlayerTurn)
+                lblTurn.Text = "Turn: Player X";
+            else
+                lblTurn.Text = "Turn: Player O";
+        }
+
+        private void DoMove(Button btnClicked)
+        {
+            if (CheckPlacement(btnClicked))
+            {
+                if (isPlayerTurn)
+                    btnClicked.Text = "X";
+                else
+                    btnClicked.Text = "O";
+                isPlayerTurn = !isPlayerTurn;
+            }
+            UpdateUIInfo();
+        }
+
         private void btnTopLeft_Click(object sender, EventArgs e)
         {
             if (CheckPlacement(sender))
@@ -31,19 +57,13 @@ namespace WindowsForms_Tic_tac_toe
                     btnTopLeft.Text = "O";
                 isPlayerTurn = !isPlayerTurn;
             }
-            
-                
-
+            UpdateUIInfo();
         }
-
-        private bool CheckPlacement (object btn)
-        {
-            return ((Button)btn).Text == string.Empty; ;
-        }
+        
 
         private void btnTopCenter_Click(object sender, EventArgs e)
         {
-            
+            DoMove((Button)sender);
         }
     }
 }

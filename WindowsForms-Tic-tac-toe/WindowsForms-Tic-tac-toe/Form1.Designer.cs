@@ -37,7 +37,7 @@
             this.btnBottomRight = new System.Windows.Forms.Button();
             this.btnBottomCenter = new System.Windows.Forms.Button();
             this.btnBottomLeft = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTurn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnTopLeft
@@ -114,21 +114,21 @@
             this.btnBottomLeft.TabIndex = 6;
             this.btnBottomLeft.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblTurn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Turn: ";
+            this.lblTurn.AutoSize = true;
+            this.lblTurn.Location = new System.Drawing.Point(12, 9);
+            this.lblTurn.Name = "lblTurn";
+            this.lblTurn.Size = new System.Drawing.Size(74, 13);
+            this.lblTurn.TabIndex = 9;
+            this.lblTurn.Text = "Turn: Player X";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 284);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.btnBottomRight);
             this.Controls.Add(this.btnBottomCenter);
             this.Controls.Add(this.btnBottomLeft);
@@ -156,7 +156,7 @@
         private System.Windows.Forms.Button btnBottomRight;
         private System.Windows.Forms.Button btnBottomCenter;
         private System.Windows.Forms.Button btnBottomLeft;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTurn;
     }
 }
 
