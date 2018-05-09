@@ -24,8 +24,12 @@ namespace WindowsForms_Calc
             int total = Int32.Parse(lblTotal.Text);
             int current = Int32.Parse(txtInput.Text);
             lblTotal.Text = Calc.Add(total, current).ToString();
+            UpdateStack();
+        }
 
-
+        private void UpdateStack ()
+        {
+            lblStack.Text = Calc.Stack.ToString();
         }
     }
 }

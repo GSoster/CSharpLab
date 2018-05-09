@@ -34,6 +34,7 @@
             this.btnMult = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.lblStack = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtInput
@@ -45,7 +46,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(22, 84);
+            this.btnAdd.Location = new System.Drawing.Point(22, 114);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 23);
             this.btnAdd.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // btnSub
             // 
-            this.btnSub.Location = new System.Drawing.Point(139, 84);
+            this.btnSub.Location = new System.Drawing.Point(139, 114);
             this.btnSub.Name = "btnSub";
             this.btnSub.Size = new System.Drawing.Size(90, 23);
             this.btnSub.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // btnMult
             // 
-            this.btnMult.Location = new System.Drawing.Point(22, 130);
+            this.btnMult.Location = new System.Drawing.Point(22, 160);
             this.btnMult.Name = "btnMult";
             this.btnMult.Size = new System.Drawing.Size(92, 23);
             this.btnMult.TabIndex = 3;
@@ -73,7 +74,7 @@
             // 
             // btnDivide
             // 
-            this.btnDivide.Location = new System.Drawing.Point(139, 130);
+            this.btnDivide.Location = new System.Drawing.Point(139, 160);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(90, 23);
             this.btnDivide.TabIndex = 4;
@@ -89,11 +90,21 @@
             this.lblTotal.TabIndex = 5;
             this.lblTotal.Text = "0";
             // 
+            // lblStack
+            // 
+            this.lblStack.AutoSize = true;
+            this.lblStack.Location = new System.Drawing.Point(19, 84);
+            this.lblStack.Name = "lblStack";
+            this.lblStack.Size = new System.Drawing.Size(13, 13);
+            this.lblStack.TabIndex = 6;
+            this.lblStack.Text = "=";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 170);
+            this.ClientSize = new System.Drawing.Size(268, 196);
+            this.Controls.Add(this.lblStack);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnMult);
@@ -115,6 +126,7 @@
         private System.Windows.Forms.Button btnMult;
         private System.Windows.Forms.Button btnDivide;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblStack;
     }
 }
 

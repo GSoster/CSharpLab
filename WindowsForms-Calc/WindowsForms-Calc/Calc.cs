@@ -10,8 +10,16 @@ namespace WindowsForms_Calc
     {
         public int Total { get; set; }
 
+        public static List<string> Stack = new List<string>();
+
+        public Calc ()
+        {
+            
+        }
+
         public static int Add (int number, int toAdd)
         {
+            Stack.Add(" + " + toAdd.ToString());
             return number + toAdd;
         }
 
