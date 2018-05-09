@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3642956-B1FE-4891-BBEE-FB5BBA39920C}</ProjectGuid>
+    <ProjectGuid>{76C14FF2-19A6-4FF8-B584-AEA305F67D01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsForms_UserRegister</RootNamespace>
-    <AssemblyName>WindowsForms-UserRegister</AssemblyName>
+    <RootNamespace>WindowsForms_Tic_tac_toe</RootNamespace>
+    <AssemblyName>WindowsForms-Tic-tac-toe</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,7 +51,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -79,6 +78,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
