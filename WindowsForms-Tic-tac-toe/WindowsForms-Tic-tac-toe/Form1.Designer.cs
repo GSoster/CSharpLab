@@ -65,6 +65,7 @@
             this.btnTopRight.Size = new System.Drawing.Size(85, 72);
             this.btnTopRight.TabIndex = 2;
             this.btnTopRight.UseVisualStyleBackColor = true;
+            this.btnTopRight.Click += new System.EventHandler(this.btnTopRight_Click);
             // 
             // btnMiddleRight
             // 
@@ -73,6 +74,7 @@
             this.btnMiddleRight.Size = new System.Drawing.Size(85, 72);
             this.btnMiddleRight.TabIndex = 5;
             this.btnMiddleRight.UseVisualStyleBackColor = true;
+            this.btnMiddleRight.Click += new System.EventHandler(this.btnMiddleRight_Click);
             // 
             // btnMiddleCenter
             // 
@@ -81,6 +83,7 @@
             this.btnMiddleCenter.Size = new System.Drawing.Size(85, 72);
             this.btnMiddleCenter.TabIndex = 4;
             this.btnMiddleCenter.UseVisualStyleBackColor = true;
+            this.btnMiddleCenter.Click += new System.EventHandler(this.btnMiddleCenter_Click);
             // 
             // btnMiddleLeft
             // 
@@ -89,6 +92,7 @@
             this.btnMiddleLeft.Size = new System.Drawing.Size(85, 72);
             this.btnMiddleLeft.TabIndex = 3;
             this.btnMiddleLeft.UseVisualStyleBackColor = true;
+            this.btnMiddleLeft.Click += new System.EventHandler(this.btnMiddleLeft_Click);
             // 
             // btnBottomRight
             // 
@@ -97,6 +101,7 @@
             this.btnBottomRight.Size = new System.Drawing.Size(85, 72);
             this.btnBottomRight.TabIndex = 8;
             this.btnBottomRight.UseVisualStyleBackColor = true;
+            this.btnBottomRight.Click += new System.EventHandler(this.btnBottomRight_Click);
             // 
             // btnBottomCenter
             // 
@@ -105,6 +110,7 @@
             this.btnBottomCenter.Size = new System.Drawing.Size(85, 72);
             this.btnBottomCenter.TabIndex = 7;
             this.btnBottomCenter.UseVisualStyleBackColor = true;
+            this.btnBottomCenter.Click += new System.EventHandler(this.btnBottomCenter_Click);
             // 
             // btnBottomLeft
             // 
@@ -113,6 +119,7 @@
             this.btnBottomLeft.Size = new System.Drawing.Size(85, 72);
             this.btnBottomLeft.TabIndex = 6;
             this.btnBottomLeft.UseVisualStyleBackColor = true;
+            this.btnBottomLeft.Click += new System.EventHandler(this.btnBottomLeft_Click);
             // 
             // lblTurn
             // 

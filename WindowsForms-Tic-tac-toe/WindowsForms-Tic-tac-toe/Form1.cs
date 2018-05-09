@@ -49,19 +49,46 @@ namespace WindowsForms_Tic_tac_toe
 
         private void btnTopLeft_Click(object sender, EventArgs e)
         {
-            if (CheckPlacement(sender))
-            {
-                if (isPlayerTurn)
-                    btnTopLeft.Text = "X";
-                else
-                    btnTopLeft.Text = "O";
-                isPlayerTurn = !isPlayerTurn;
-            }
-            UpdateUIInfo();
+            DoMove((Button)sender);
         }
         
 
         private void btnTopCenter_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnTopRight_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnMiddleLeft_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnMiddleCenter_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnMiddleRight_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnBottomLeft_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnBottomCenter_Click(object sender, EventArgs e)
+        {
+            DoMove((Button)sender);
+        }
+
+        private void btnBottomRight_Click(object sender, EventArgs e)
         {
             DoMove((Button)sender);
         }
