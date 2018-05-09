@@ -23,7 +23,13 @@ namespace WindowsForms_Calc
             return number + toAdd;
         }
 
-       
+       public static int Sub (int number, int toSub)
+        {
+            Stack.Add(" - " + toSub.ToString());
+            return number - toSub;
+        }
+
+
 
     }
 }

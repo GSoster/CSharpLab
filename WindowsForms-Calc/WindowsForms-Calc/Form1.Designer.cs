@@ -62,6 +62,7 @@
             this.btnSub.TabIndex = 2;
             this.btnSub.Text = "-";
             this.btnSub.UseVisualStyleBackColor = true;
+            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
             // 
             // btnMult
             // 

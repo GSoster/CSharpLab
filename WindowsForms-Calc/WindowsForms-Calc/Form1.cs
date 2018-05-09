@@ -29,7 +29,16 @@ namespace WindowsForms_Calc
 
         private void UpdateStack ()
         {
+            
             lblStack.Text = Calc.Stack.ToString();
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+            int total = Int32.Parse(lblTotal.Text);
+            int current = Int32.Parse(txtInput.Text);
+            lblTotal.Text = Calc.Sub(total, current).ToString();
+            UpdateStack();
         }
     }
 }
