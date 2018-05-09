@@ -22,39 +22,46 @@ namespace WindowsForms_Calc
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-            total = Double.Parse(lblTotal.Text);
-            current = Double.Parse(txtInput.Text);
-            lblTotal.Text = Calc.Add(total, current).ToString();            
-            UpdateStack();
+        {            
+            if (UpdateNumbers())
+            {
+                lblTotal.Text = Calc.Add(total, current).ToString();
+                UpdateStack();                
+            }
             ClearInput();
         }        
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            total = Double.Parse(lblTotal.Text);
-            current = Double.Parse(txtInput.Text);
-            lblTotal.Text = Calc.Sub(total, current).ToString();
-            UpdateStack();
+            if (UpdateNumbers())
+            {
+                lblTotal.Text = Calc.Sub(total, current).ToString();
+                UpdateStack();                
+            }
             ClearInput();
+
         }
 
         private void btnMult_Click(object sender, EventArgs e)
         {
-            total = Double.Parse(lblTotal.Text);
-            current = Double.Parse(txtInput.Text);
-            lblTotal.Text = Calc.Mult(total, current).ToString();
-            UpdateStack();
+            if (UpdateNumbers())
+            {
+                lblTotal.Text = Calc.Mult(total, current).ToString();
+                UpdateStack();                
+            }
             ClearInput();
+
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            total = Double.Parse(lblTotal.Text);
-            current = Double.Parse(txtInput.Text);
-            lblTotal.Text = Calc.Divide(total, current).ToString();
-            UpdateStack();
+            if (UpdateNumbers())
+            {
+                lblTotal.Text = Calc.Divide(total, current).ToString();
+                UpdateStack();                
+            }
             ClearInput();
+
         }
 
         private void ClearInput ()
@@ -63,6 +70,9 @@ namespace WindowsForms_Calc
             txtInput.Clear();
         }
 
+        /**
+         * Displays all the calculations done
+         **/
         private void UpdateStack()
         {
             string textToDisplay = " = ";
@@ -71,6 +81,17 @@ namespace WindowsForms_Calc
                 textToDisplay += elem;
             }
             lblStack.Text = textToDisplay;
+        }
+
+        /**
+         * Try to cast numbers to Double
+         * */
+        private bool UpdateNumbers ()
+        {
+            if (Double.TryParse(lblTotal.Text, out total))
+                if (Double.TryParse(txtInput.Text, out current))
+                    return true;
+            return false;
         }
     }
 }
