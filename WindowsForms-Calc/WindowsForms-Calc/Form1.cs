@@ -25,10 +25,9 @@ namespace WindowsForms_Calc
         {
             total = Double.Parse(lblTotal.Text);
             current = Double.Parse(txtInput.Text);
-            lblTotal.Text = Calc.Add(total, current).ToString();
+            lblTotal.Text = Calc.Add(total, current).ToString();            
             UpdateStack();
-            txtInput.Focus();
-            txtInput.Clear();
+            ClearInput();
         }        
 
         private void btnSub_Click(object sender, EventArgs e)
@@ -37,8 +36,7 @@ namespace WindowsForms_Calc
             current = Double.Parse(txtInput.Text);
             lblTotal.Text = Calc.Sub(total, current).ToString();
             UpdateStack();
-            txtInput.Focus();
-            txtInput.Clear();
+            ClearInput();
         }
 
         private void btnMult_Click(object sender, EventArgs e)
@@ -47,8 +45,7 @@ namespace WindowsForms_Calc
             current = Double.Parse(txtInput.Text);
             lblTotal.Text = Calc.Mult(total, current).ToString();
             UpdateStack();
-            txtInput.Focus();
-            txtInput.Clear();
+            ClearInput();
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
@@ -57,6 +54,11 @@ namespace WindowsForms_Calc
             current = Double.Parse(txtInput.Text);
             lblTotal.Text = Calc.Divide(total, current).ToString();
             UpdateStack();
+            ClearInput();
+        }
+
+        private void ClearInput ()
+        {
             txtInput.Focus();
             txtInput.Clear();
         }
