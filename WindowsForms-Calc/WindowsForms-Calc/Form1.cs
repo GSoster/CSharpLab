@@ -14,6 +14,7 @@ namespace WindowsForms_Calc
     {
         public Calc Calculator;
         public double total = 0;
+        public double current = 0; // current item being displeyed 
 
         public Form1()
         {
@@ -22,15 +23,16 @@ namespace WindowsForms_Calc
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int total = Int32.Parse(lblTotal.Text);
-            int current = Int32.Parse(txtInput.Text);
+            total = Double.Parse(lblTotal.Text);
+            current = Double.Parse(txtInput.Text);
             lblTotal.Text = Calc.Add(total, current).ToString();
             UpdateStack();
+            txtInput.Focus();
         }
 
         private void UpdateStack ()
         {
-            string textToDisplay = "teste";
+            string textToDisplay = " = ";
             foreach(string elem in Calc.Stack)
             {
                 textToDisplay += elem;
@@ -40,15 +42,26 @@ namespace WindowsForms_Calc
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            int total = Int32.Parse(lblTotal.Text);
-            int current = Int32.Parse(txtInput.Text);
+            total = Double.Parse(lblTotal.Text);
+            current = Double.Parse(txtInput.Text);
             lblTotal.Text = Calc.Sub(total, current).ToString();
             UpdateStack();
         }
 
         private void btnMult_Click(object sender, EventArgs e)
         {
+            total = Double.Parse(lblTotal.Text);
+            current = Double.Parse(txtInput.Text);
+            lblTotal.Text = Calc.Mult(total, current).ToString();
+            UpdateStack();
+        }
 
+        private void btnDivide_Click(object sender, EventArgs e)
+        {
+            total = Double.Parse(lblTotal.Text);
+            current = Double.Parse(txtInput.Text);
+            lblTotal.Text = Calc.Divide(total, current).ToString();
+            UpdateStack();
         }
     }
 }

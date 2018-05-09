@@ -82,6 +82,7 @@
             this.btnDivide.TabIndex = 4;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             // 
             // lblTotal
             // 
@@ -114,7 +115,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtInput);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calc";
             this.ResumeLayout(false);
             this.PerformLayout();
 
