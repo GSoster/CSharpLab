@@ -7,7 +7,7 @@ namespace Engine.Models
     public class Player
     {
         public string Name { get; set; }
-        public string CharacteClass { get; set; }
+        public string CharacterClass { get; set; }
         public int HitPoints{ get; set; }
         public int ExperiencePoints { get; set; }
         public int Level{ get; set; }
