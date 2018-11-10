@@ -50,6 +50,7 @@ namespace WindowsForms_Tic_tac_toe
         private void btnTopLeft_Click(object sender, EventArgs e)
         {
             DoMove((Button)sender);
+           
         }
         
 
