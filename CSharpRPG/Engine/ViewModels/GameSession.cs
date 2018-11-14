@@ -27,7 +27,7 @@ namespace Engine.ViewModels
 
             WorldFactory wFactory = new WorldFactory();
             CurrentWorld = wFactory.CreateWorld();
-            CurrentLocation = CurrentWorld.LocationAt(0, -1);
+            CurrentLocation = CurrentWorld.LocationAt(0, 0);
         }
     }
 }

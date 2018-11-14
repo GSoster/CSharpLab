@@ -15,6 +15,18 @@ namespace Engine.Models
             _locations.Add(locationToAdd);
         }
 
+        internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
+        {
+            Location loc = new Location();
+            loc.XCoordinate = xCoordinate;
+            loc.YCoordinate = yCoordinate;
+            loc.Name = name;
+            loc.Description = description;
+            loc.ImageName = imageName;
+
+            _locations.Add(loc);
+        }
+
         public Location LocationAt(int XCoordinate, int YCoordinate)
         {
             //return _locations.FirstOrDefault<Location>(l => l.XCoordinate == XCoordinate && l.YCoordinate == YCoordinate);
