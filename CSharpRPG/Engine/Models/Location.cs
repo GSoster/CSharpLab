@@ -11,5 +11,9 @@ namespace Engine.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageName { get; set; }
+        //TODO: rename for something better since in the future I can implement quests chain
+        //where the player needs to complete one quest, before they can receive the next quest in the “chain”.
+        public List<Quest> QuestsAvailableHere { get; set; } = new List<Quest>();
+
     }
 }

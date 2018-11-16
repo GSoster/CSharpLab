@@ -11,6 +11,7 @@ namespace Engine.Models
         private int _gold;
 
         public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<QuestStatus> Quests { get; set; } 
 
         public string Name {
             get { return _name; }
@@ -51,6 +52,7 @@ namespace Engine.Models
        public Player()
         {
             Inventory = new ObservableCollection<GameItem>();
+            Quests = new ObservableCollection<QuestStatus>();
         }
 
     }
