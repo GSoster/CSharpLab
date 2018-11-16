@@ -30,7 +30,7 @@ namespace Engine.Factories
                     AddLootItem(rat, 9004, 75);
  
                     return rat;
- 
+                    
                 case 3:
                     Monster giantSpider = 
                         new Monster("Giant Spider", "GiantSpider.png", 10, 10, 10, 3);

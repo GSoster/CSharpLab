@@ -22,6 +22,7 @@ namespace Engine.Models
 
         public void AddMonster(int monsterID, int chanceOfEncountering)
         {
+            //Determines whether the List(T) contains elements that match the conditions defined by the specified predicate.
             if (MonstersHere.Exists(monster => monster.MonsterID == monsterID))
             {
                 // significa que já temos esse monstro em nossa coleção, hora de atualizar as chances de encontrá-lo novamente
@@ -30,7 +31,7 @@ namespace Engine.Models
             }
             else
             {
-                //se ´não existir é hora de adicionar.
+                //se não existir é hora de adicionar.
                 MonstersHere.Add(new MonsterEncounter(monsterID, chanceOfEncountering));
             }
 

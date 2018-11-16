@@ -27,7 +27,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public bool HasMonster => CurrentMonster != null; //expression body
+        
 
         public Monster CurrentMonster
         {
@@ -39,7 +39,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasMonster));
             }
         }
-
+        public bool HasMonster => CurrentMonster != null; //expression body
         public bool HasLocationToNorth {
             get {
                 return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
@@ -119,6 +119,7 @@ namespace Engine.ViewModels
                 CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
         }
 
+        //Verifies the quests that exist in the location, if the place doesn't have them yet adds it to the player quest list
         private void GivePlayerQuestsAtLocation()
         {
             foreach(Quest quest in CurrentLocation.QuestsAvailableHere)
@@ -133,7 +134,8 @@ namespace Engine.ViewModels
 
         private void GetMonsterAtLocation()
         {
-            _currentMonster = CurrentLocation.GetMonster();
+            //it must be 'CurrentMonster' and not _currentMonster so we can dispache the OnPropertyChanged event.
+            CurrentMonster = CurrentLocation.GetMonster();
         }
 
     }

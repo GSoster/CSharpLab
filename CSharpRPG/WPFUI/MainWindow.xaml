@@ -30,9 +30,10 @@
             
         </Grid.ColumnDefinitions>
 
+        <!-- Menu -->
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="Aquamarine"/>
 
+        <!-- Player stats -->
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
