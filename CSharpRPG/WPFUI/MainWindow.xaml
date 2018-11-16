@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
         FontSize="11pt"
-        Title="CSharp RPG" Height="600" Width="1024">
+        Title="CSharp RPG" Height="720" Width="1024">
     <!--Visibility converter: built in function to convert from boolean variables to visibility(hidden, etc)-->
 
 
@@ -91,42 +91,45 @@
                     <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description}"  TextWrapping="Wrap"></TextBlock>
                 </Grid>
             </Border>
-        </Grid>
-        <!-- MONSTER INFORMATION -->
-        <Border Grid.Row="1" Grid.Column="1"
+
+            <!-- MONSTER INFORMATION -->
+            <Border Grid.Row="1" Grid.Column="1"
                     BorderBrush="Gainsboro"
                     BorderThickness="1">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                                HorizontalAlignment="Center"
                                Height="Auto"
                                Text="{Binding CurrentMonster.Name}" />
 
-                <Image Grid.Row="1"
+                    <Image Grid.Row="1"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
                            Source="{Binding CurrentMonster.ImageName}" />
 
-                <StackPanel Grid.Row="2"
+                    <StackPanel Grid.Row="2"
                                 Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
                                 HorizontalAlignment="Center"
                                 Orientation="Horizontal">
-                    <TextBlock>Current Hit Points:</TextBlock>
-                    <TextBlock Text="{Binding CurrentMonster.HitPoints}" />
-                </StackPanel>
+                        <TextBlock>Current Hit Points:</TextBlock>
+                        <TextBlock Text="{Binding CurrentMonster.HitPoints}" />
+                    </StackPanel>
 
-            </Grid>
+                </Grid>
 
-        </Border>
+            </Border>
+
+        </Grid>
+        
 
         <!-- INVENTORY AND QUESTS -->
         <Grid Grid.Row="2" Grid.Column="0"
