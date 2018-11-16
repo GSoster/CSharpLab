@@ -1,4 +1,5 @@
-﻿namespace Engine.Models
+﻿using System.Collections.ObjectModel;
+namespace Engine.Models
 {
     public class Player : BaseNotificationClass
     {
@@ -8,6 +9,8 @@
         private int _experiencePoints;
         private int _level;
         private int _gold;
+
+        public ObservableCollection<GameItem> Inventory { get; set; }
 
         public string Name {
             get { return _name; }
@@ -45,7 +48,10 @@
                 OnPropertyChanged(nameof(Gold));
             } }
 
-       
+       public Player()
+        {
+            Inventory = new ObservableCollection<GameItem>();
+        }
 
     }
 }
