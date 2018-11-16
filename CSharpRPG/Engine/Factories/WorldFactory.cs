@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Engine.Models;
+﻿using Engine.Models;
 namespace Engine.Factories
 {
-    internal class WorldFactory//internal to only be usable inside Engine project/namespace
+    internal static class WorldFactory//internal to only be usable inside Engine project/namespace
     {
 
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World newWorld = new World();
  
