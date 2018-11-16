@@ -123,7 +123,8 @@ namespace Engine.ViewModels
         {
             foreach(Quest quest in CurrentLocation.QuestsAvailableHere)
             {
-                if (CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                //Determines whether any element of a sequence satisfies a condition.
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
                 }
