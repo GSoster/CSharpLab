@@ -1,8 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
 namespace Engine.Models
 {
     public class Player : BaseNotificationClass
     {
+        #region Properties
         private string _name;
         private string _characterClass;
         private int _hitPoints;
@@ -11,7 +15,8 @@ namespace Engine.Models
         private int _gold;
 
         public ObservableCollection<GameItem> Inventory { get; set; }
-        public ObservableCollection<QuestStatus> Quests { get; set; } 
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+        public List<GameItem> Weapons => Inventory.Where(Item => Item is Weapon).ToList();
 
         public string Name {
             get { return _name; }
@@ -49,10 +54,20 @@ namespace Engine.Models
                 OnPropertyChanged(nameof(Gold));
             } }
 
-       public Player()
+
+        #endregion
+
+        public Player()
         {
             Inventory = new ObservableCollection<GameItem>();
             Quests = new ObservableCollection<QuestStatus>();
+        }
+
+        //TODO: this method will be useful if we want to put a limit on the quantity or weight of items the player can have.
+        public void AddItemToInventory(GameItem item)
+        {
+            Inventory.Add(item);
+            OnPropertyChanged(nameof(Weapons));
         }
 
     }
