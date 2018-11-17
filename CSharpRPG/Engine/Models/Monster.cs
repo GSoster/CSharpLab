@@ -11,7 +11,7 @@ namespace Engine.Models
         public string ImageName { get; set; }
         public int MaximumHitPoints { get; set; }
         public int HitPoints { get { return _hitPoints; }
-            private set {
+             set {
                 _hitPoints = value;
                 OnPropertyChanged(nameof(HitPoints));
             }

@@ -14,6 +14,8 @@ namespace Engine.ViewModels
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer{ get; set; }
 
+        public Weapon CurrentWeapon { get; set; }
+
         public Location CurrentLocation {
             get {return _currentLocation;}
             set {
@@ -104,10 +106,14 @@ namespace Engine.ViewModels
             CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
             CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
             //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            if (!CurrentPlayer.Weapons.Any())
+            {
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            }
         }
 
-       
 
+        #region Movement Methods
         public void MoveNorth()
         {
             if (HasLocationToNorth)
@@ -131,6 +137,8 @@ namespace Engine.ViewModels
             if (HasLocationToEast)
                 CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
         }
+        #endregion
+
 
         //Verifies the quests that exist in the location, if the place doesn't have them yet adds it to the player quest list
         private void GivePlayerQuestsAtLocation()
@@ -154,6 +162,84 @@ namespace Engine.ViewModels
         private void RaiseMessage(string message)
         {
             OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
+        }
+
+
+        //TODO: refactor AND rename it to AttackCurrentEnemy
+        public void AttackCurrentMonster()
+        {
+            if (CurrentWeapon == null)
+            {
+                RaiseMessage("You must select a weapon, to attack.");
+                return; //early exit
+            }
+            //TODO: refactor to damageToEnemy
+            int damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
+
+            if (damageToMonster == 0)
+            {
+                RaiseMessage("You must select a weapon, to attack.");
+            }
+            else
+            {
+                CurrentMonster.HitPoints -= damageToMonster;
+                RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
+            }
+
+
+            //Handles the winning condition
+            // If monster is killed, collect rewards and loot
+            if (CurrentMonster.HitPoints <= 0)
+            {
+                RaiseMessage("");
+                RaiseMessage($"You defeated the {CurrentMonster.Name}!");
+
+                CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
+                RaiseMessage($"You receive {CurrentMonster.RewardExperiencePoints} experience points.");
+
+                CurrentPlayer.Gold += CurrentMonster.RewardGold;
+                RaiseMessage($"You receive {CurrentMonster.RewardGold} gold.");
+
+                foreach (ItemQuantity itemQuantity in CurrentMonster.Inventory)
+                {
+                    GameItem item = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                    CurrentPlayer.AddItemToInventory(item);
+                    RaiseMessage($"You receive {itemQuantity.Quantity} {item.Name}.");
+                }
+
+                // Get another monster to fight
+                GetMonsterAtLocation();
+            }
+            else //TODO: A LOT OF refactoring can be done here
+            {
+                // If monster is still alive, let the monster attack
+                //TODO: this should be a function on the base class for the player/monster public int AttackEnemy(GameObject enemy)
+                //the function should be able to determine how much damage and to damage the enemy, maybe even print it to screen..
+                int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
+
+                if (damageToPlayer == 0)
+                {
+                    RaiseMessage("The monster attacks, but misses you.");
+                }
+                else
+                {
+                    CurrentPlayer.HitPoints -= damageToPlayer;
+                    RaiseMessage($"The {CurrentMonster.Name} hit you for {damageToPlayer} points.");
+                }
+
+                // If player is killed, move them back to their home.
+                //TODO: This should be a function on player (HasDied? IsAlive? HasReceivedFatalDamage?)
+                if (CurrentPlayer.HitPoints <= 0)
+                {
+                    RaiseMessage("");
+                    RaiseMessage($"The {CurrentMonster.Name} killed you.");
+
+                    CurrentLocation = CurrentWorld.LocationAt(0, -1); // Player's home
+                    //TODO: this 10 that is multiplied by the leve to get the max life should be a constant somewhere.
+                    CurrentPlayer.HitPoints = CurrentPlayer.Level * 10; // Completely heal the player
+                }
+            }
+
         }
 
     }

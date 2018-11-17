@@ -33,7 +33,7 @@ namespace WPFUI
             DataContext = _gameSession;
         }
 
-
+        #region Movement methods
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
             _gameSession.MoveNorth();
@@ -53,11 +53,18 @@ namespace WPFUI
         {
             _gameSession.MoveEast();
         }
-
+        #endregion
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
             GameMessages.ScrollToEnd();
         }
+
+        //TODO: Rename to attack ENEMY
+        private void OnClick_AttackMonster(Object sender, EventArgs e)
+        {
+            _gameSession.AttackCurrentMonster();
+        }
+
     }
 }
