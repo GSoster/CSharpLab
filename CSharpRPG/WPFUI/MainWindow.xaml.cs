@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine.ViewModels;
+using Engine.EventArgs;
 namespace WPFUI
 {
     /// <summary>
@@ -26,6 +27,9 @@ namespace WPFUI
         {
             InitializeComponent();
             _gameSession = new GameSession();
+
+            //here the View subscribes to the event handler
+            _gameSession.OnMessageRaised += OnGameMessageRaised;
             DataContext = _gameSession;
         }
 
@@ -50,6 +54,10 @@ namespace WPFUI
             _gameSession.MoveEast();
         }
 
-
+        private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
+        {
+            GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
+            GameMessages.ScrollToEnd();
+        }
     }
 }

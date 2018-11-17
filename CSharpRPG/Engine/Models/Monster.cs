@@ -2,6 +2,7 @@
 
 namespace Engine.Models
 {
+    //TODO: rename this to enemy!
     public class Monster : BaseNotificationClass
     {
         private int _hitPoints;

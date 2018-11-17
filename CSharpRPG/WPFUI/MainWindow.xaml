@@ -64,7 +64,7 @@
 
         </Grid>
 
-    <!-- LOCATION -->
+    
         <Grid Grid.Row="1" Grid.Column="1" Background="Beige" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/><!-- 50% pq tem 2 -->
@@ -74,6 +74,24 @@
                 <ColumnDefinition Width="3*"/><!-- 3* = -->
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
+            <!-- Game Messages -->
+            <Border Grid.Row="0" Grid.Column="0"
+                    Grid.RowSpan="2"
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1">
+
+                <RichTextBox x:Name="GameMessages"
+                             Background="Beige"
+                             VerticalScrollBarVisibility="Auto">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                </RichTextBox>
+
+            </Border>
+            <!-- LOCATION -->
             <Border Grid.Row="0" Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
                 <Grid Margin="3">
                     <Grid.RowDefinitions>
