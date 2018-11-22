@@ -8,13 +8,13 @@ namespace Engine.Factories
 {
     public static class ItemFactory
     {
-        private static List<GameItem> _standardGameItems;
+        //readonly means that we cannot assign a new object to the reference, not that the current object
+        //becomes imutable. So it is still possible to add items to the list
+        private static readonly List<GameItem> _standardGameItems = new List<GameItem>();
 
         //this method is called on the first execution of the static class ItemFactory
         static ItemFactory()
-        {
-            _standardGameItems = new List<GameItem>();
-
+        {            
             _standardGameItems.Add(new Weapon(1001, "Pointy Stick", 1, 1, 2));
             _standardGameItems.Add(new Weapon(1002, "Rusty Sword", 5, 1, 3));
             _standardGameItems.Add(new GameItem(9001, "Snake fang", 1));

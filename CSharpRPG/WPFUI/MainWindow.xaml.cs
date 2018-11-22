@@ -21,12 +21,11 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameSession _gameSession;
+        private readonly GameSession _gameSession = new GameSession();;
         
         public MainWindow()
         {
-            InitializeComponent();
-            _gameSession = new GameSession();
+            InitializeComponent();            
 
             //here the View subscribes to the event handler
             _gameSession.OnMessageRaised += OnGameMessageRaised;
