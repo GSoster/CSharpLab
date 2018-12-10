@@ -60,12 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Factories\TagFactory.cs" />
     <Compile Include="Model\Collection.cs" />
     <Compile Include="Model\IMedia.cs" />
     <Compile Include="Model\ITaggable.cs" />
     <Compile Include="Model\Media.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Util\FileHandler.cs" />
+    <Compile Include="ViewModels\Session.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

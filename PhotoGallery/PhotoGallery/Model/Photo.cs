@@ -44,5 +44,10 @@ namespace PhotoGallery.Model
             return _source.ToString();
         }
 
+        public void AddTag(Tag tag)
+        {
+            TagList.Add(tag);
+        }
+
     }
 }

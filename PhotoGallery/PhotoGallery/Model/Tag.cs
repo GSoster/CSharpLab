@@ -20,6 +20,7 @@ namespace PhotoGallery.Model
                     throw new ArgumentNullException();
                 _InternalName = value.ToLower();
             }
-        }
+        }        
+
     }
 }

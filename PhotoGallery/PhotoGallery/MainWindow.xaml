@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoGallery"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="379.412" Width="780.882">
     <Grid>
         <Button x:Name="btnSearchImageFolder" Content="Import" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="75"/>
         <ListView x:Name="lstvwPhotos" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="27,198,0,0" VerticalAlignment="Top" Width="413" ScrollViewer.VerticalScrollBarVisibility="Disabled">
@@ -33,6 +33,15 @@
         </ListView>
         <Label Content="" HorizontalAlignment="Left" Margin="109,21,0,0" VerticalAlignment="Top" Name="lblQuantityPicturesDisplyed"/>
         <Image Name="imgCurrentDisplayedImage" HorizontalAlignment="Left" Height="126" Margin="109,47,0,0" VerticalAlignment="Top" Width="262"/>
+        <TabControl HorizontalAlignment="Left" Height="100" Margin="607,126,0,0" VerticalAlignment="Top" Width="100">
+            <TabItem Header="Collection">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Tags">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <Button Name="AddToCollection" Content="Add" HorizontalAlignment="Left" Margin="532,153,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
