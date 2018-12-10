@@ -59,6 +59,15 @@ namespace WPFUI
             GameMessages.ScrollToEnd();
         }
 
+
+        private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
+        {
+            TradeScreen tradeScreen = new TradeScreen();
+            tradeScreen.Owner = this;
+            tradeScreen.DataContext = _gameSession;
+            tradeScreen.ShowDialog();
+        }
+
         //TODO: Rename to attack ENEMY
         private void OnClick_AttackMonster(Object sender, EventArgs e)
         {
