@@ -19,6 +19,8 @@ namespace Engine.Models
 
         public List<MonsterEncounter> MonstersHere { get; set; } = new List<MonsterEncounter>();
 
+        //TODO: make traders become a list and rename this var...
+        public Trader TraderHere { get; set; }
 
         public void AddMonster(int monsterID, int chanceOfEncountering)
         {

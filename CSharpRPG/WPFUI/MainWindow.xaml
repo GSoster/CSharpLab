@@ -242,6 +242,10 @@
                         Click="OnClick_MoveNorth" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}" Content="North"/>
                 <Button Grid.Row="1" Height="25" Width="65" Margin="10" Grid.Column="0"
                         Click="OnClick_MoveWest" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}" Content="West"/>
+                <Button Grid.Row="1" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10" 
+                        Visibility="{Binding HasTrader, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Trade"/>
                 <Button Grid.Row="1" Height="25" Width="65" Margin="10" Grid.Column="2"
                         Click="OnClick_MoveEast" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}" Content="East"/>
                 <Button Grid.Row="2" Height="25" Width="65" Margin="10" Grid.Column="1"
