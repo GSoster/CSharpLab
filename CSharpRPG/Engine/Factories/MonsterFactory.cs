@@ -50,7 +50,7 @@ namespace Engine.Factories
         {
             if (RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
             {
-                monster.Inventory.Add(new ItemQuantity(itemID, 1)); //1 here means QUANTITY of the item.
+                monster.Inventory.Add(ItemFactory.CreateGameItem(itemID)); //1 here means QUANTITY of the item.
             }
         }
     }
