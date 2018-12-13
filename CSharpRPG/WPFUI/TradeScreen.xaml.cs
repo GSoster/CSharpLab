@@ -32,7 +32,7 @@ namespace WPFUI
         public void OnClick_Sell(object sender, RoutedEventArgs e)
         {
             //what row the button was clicked
-            GameItem item = ((FrameworkElement)sender).DataContext as GameItem;
+            GameItem item = (((FrameworkElement)sender).DataContext as GroupedInventoryItem).Item;
 
             if (item != null)
             {
@@ -45,7 +45,7 @@ namespace WPFUI
 
         public void OnClick_Buy(object sender, RoutedEventArgs e)
         {
-            GameItem item = ((FrameworkElement)sender).DataContext as GameItem;
+            GameItem item = (((FrameworkElement)sender).DataContext as GroupedInventoryItem).Item;
 
             if (item != null)
             {
