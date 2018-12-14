@@ -8,8 +8,8 @@ namespace Engine.Models
 {
     public class Weapon : GameItem
     {
-        public int MinimumDamage { get; set; }
-        public int MaximumDamage { get; set; }
+        public int MinimumDamage { get; }
+        public int MaximumDamage { get; }
 
         public Weapon(int itemTypeId, string name, int price, int minDamage, int maxDamage)
             :base(itemTypeId, name, price, true)
