@@ -36,7 +36,7 @@ namespace WPFUI
 
             if (item != null)
             {
-                Session.CurrentPlayer.Gold += item.Price;
+                Session.CurrentPlayer.ReceiveGold(item.Price);
                 Session.CurrentTrader.AddItemToInventory(item);
                 Session.CurrentPlayer.RemoveItemFromInventory(item);
             }
@@ -52,7 +52,7 @@ namespace WPFUI
                 //TODO change this to a "CanAfford" function that checks and returns true or false
                 if (Session.CurrentPlayer.Gold >= item.Price)
                 {
-                    Session.CurrentPlayer.Gold -= item.Price;
+                    Session.CurrentPlayer.SpendGold(item.Price);
                     Session.CurrentPlayer.AddItemToInventory(item);
                     Session.CurrentTrader.RemoveItemFromInventory(item);
                 }
