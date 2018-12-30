@@ -22,9 +22,9 @@ namespace TestEngine.ViewModels
             GameSession gameSession = new GameSession();
             gameSession.CurrentPlayer.TakeDamage(999);
 
-            Assert.Equals("Home", gameSession.CurrentLocation.Name);
+            Assert.AreEqual("Home", gameSession.CurrentLocation.Name);
             //TODO: this number 10 should be some sort of constant somewhere (player class?)
-            Assert.Equals(gameSession.CurrentPlayer.Level * 10, gameSession.CurrentPlayer.CurrentHitPoints);
+            Assert.AreEqual(gameSession.CurrentPlayer.Level * 10, gameSession.CurrentPlayer.CurrentHitPoints);
         }
     }
 }
