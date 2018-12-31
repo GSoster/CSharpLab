@@ -21,6 +21,7 @@ namespace Engine.ViewModels
             {
                 if (_currentPlayer != null)
                 {
+                    _currentPlayer.OnActionPerformed -= OnCurrentPlayerPerformedAction;
                     _currentPlayer.OnLeveledUp -= OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled -= OnCurrentPlayerKilled;
                 }
@@ -29,6 +30,7 @@ namespace Engine.ViewModels
 
                 if (_currentPlayer != null)
                 {
+                    _currentPlayer.OnActionPerformed += OnCurrentPlayerPerformedAction;
                     _currentPlayer.OnLeveledUp += OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled += OnCurrentPlayerKilled;
                     
@@ -36,7 +38,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public GameItem CurrentWeapon { get; set; }
+        
 
 
         public Location CurrentLocation
@@ -248,37 +250,21 @@ namespace Engine.ViewModels
         //TODO: refactor AND rename it to AttackCurrentEnemy
         public void AttackCurrentMonster()
         {
-            if (CurrentWeapon == null)
+            if (CurrentPlayer.CurrentWeapon == null)
             {
                 RaiseMessage("You must select a weapon, to attack.");
                 return; //early exit
             }
             //TODO: refactor to damageToEnemy
-            int damageToMonster = RandomNumberGenerator.NumberBetween(CurrentWeapon.MinimumDamage, CurrentWeapon.MaximumDamage);
+            CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
-            if (damageToMonster == 0)
-            {
-                RaiseMessage($"You missed the {CurrentMonster.Name}.");
-            }
-            else
-            {
-                RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
-                CurrentMonster.TakeDamage(damageToMonster);
-            }
-
-
-            //Handles the winning condition
-            // If monster is killed, collect rewards and loot
             if (CurrentMonster.IsDead)
             {
                 // Get another monster to fight
                 GetMonsterAtLocation();
             }
-            else //TODO: A LOT OF refactoring can be done here
+            else
             {
-                // If monster is still alive, let the monster attack
-                //TODO: this should be a function on the base class for the player/monster public int AttackEnemy(GameObject enemy)
-                //the function should be able to determine how much damage and to damage the enemy, maybe even print it to screen..
                 // Let the monster attack
                 int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
 
@@ -293,6 +279,11 @@ namespace Engine.ViewModels
                 }
             }
 
+        }
+
+        private void OnCurrentPlayerPerformedAction(object sender, string result)
+        {
+            RaiseMessage(result);
         }
 
         private void OnCurrentPlayerKilled(object sender, System.EventArgs eventArgs)
