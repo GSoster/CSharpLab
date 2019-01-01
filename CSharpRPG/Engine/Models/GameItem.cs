@@ -22,18 +22,18 @@ namespace Engine.Models
         public string Name { get; }
         public int Price { get; }
         public bool IsUnique { get; }
-        public AttackWithWeapon Action { get; set; }
+        public IAction Action { get; set; }
         
         #endregion
         public GameItem(ItemCategory category, int itemTypeID, string name, int price,
-                        bool isUnique = false, AttackWithWeapon action = null)
+                        bool isUnique = false, IAction action = null)
         {
             Category = category;
             ItemTypeID = itemTypeID;
             Name = name;
             Price = price;
             IsUnique = isUnique;
-            
+            Action = action;
         }
 
         public void PerformAction(LivingEntity actor, LivingEntity target)

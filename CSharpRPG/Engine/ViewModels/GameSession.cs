@@ -255,8 +255,8 @@ namespace Engine.ViewModels
                 RaiseMessage("You must select a weapon, to attack.");
                 return; //early exit
             }
-            CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
+            CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
             if (CurrentMonster.IsDead)
             {
                 // Get another monster to fight
