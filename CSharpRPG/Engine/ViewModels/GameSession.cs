@@ -255,7 +255,6 @@ namespace Engine.ViewModels
                 RaiseMessage("You must select a weapon, to attack.");
                 return; //early exit
             }
-            //TODO: refactor to damageToEnemy
             CurrentPlayer.UseCurrentWeaponOn(CurrentMonster);
 
             if (CurrentMonster.IsDead)

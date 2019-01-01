@@ -47,10 +47,5 @@ namespace Engine.Models
                                 IsUnique, Action);
         }
 
-        public void OnActionPerformed(LivingEntity actor, LivingEntity target)
-        {
-            Action?.Execute(actor, target);
-        }
-
     }
 }
