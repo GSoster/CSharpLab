@@ -26,7 +26,15 @@ namespace GameCore.Specs
             _context.Player.Hit(damage);
         }
 
-        
+        // Due to the use of SCOPE this code will only be executed to scenarios Tagged with @elf
+        [When(@"I take (.*) damage")]
+        [Scope(Tag = "elf")]
+        public void WhenITakeDamageAsAnElf(int damage)
+        {
+            _context.Player.Hit(damage);
+        }
+
+
         [Then(@"My health should be (.*)")]
         public void ThenMyHealthShouldBe(int expectedHealth)
         {
