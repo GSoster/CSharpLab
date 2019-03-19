@@ -72,6 +72,14 @@ namespace GameCore.Specs
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 7
+#line 8
+ testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         void System.IDisposable.Dispose()
         {
             this.ScenarioTearDown();
@@ -82,17 +90,18 @@ namespace GameCore.Specs
         [Xunit.TraitAttribute("Description", "Health reduction")]
         [Xunit.InlineDataAttribute("0", "100", new string[0])]
         [Xunit.InlineDataAttribute("40", "60", new string[0])]
+        [Xunit.InlineDataAttribute("50", "50", new string[0])]
         public virtual void HealthReduction(string damage, string expectedHealth, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Health reduction", null, exampleTags);
-#line 7
+#line 10
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
- testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 7
+this.FeatureBackground();
+#line 11
  testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 12
  testRunner.Then(string.Format("My health should be {0}", expectedHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -104,15 +113,69 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void TkingTooMuchDamageResultsInPlayerDeath()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tking too much damage results in player death", null, ((string[])(null)));
-#line 27
+#line 21
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 28
- testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 29
+#line 7
+this.FeatureBackground();
+#line 22
  testRunner.When("I take 100 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 23
  testRunner.Then("I should be dead", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Elf race characters get additional 20 damage resistance")]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Elf race characters get additional 20 damage resistance")]
+        public virtual void ElfRaceCharactersGetAdditional20DamageResistance()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race characters get additional 20 damage resistance", null, ((string[])(null)));
+#line 25
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line 26
+  testRunner.And("I have a damage resistance of 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+  testRunner.And("I\'m an Elf", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("My health should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Elf race characters get addtional 20 damage resistance using data table")]
+        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
+        [Xunit.TraitAttribute("Description", "Elf race characters get addtional 20 damage resistance using data table")]
+        public virtual void ElfRaceCharactersGetAddtional20DamageResistanceUsingDataTable()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race characters get addtional 20 damage resistance using data table", null, ((string[])(null)));
+#line 32
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "attribute",
+                        "value"});
+            table1.AddRow(new string[] {
+                        "Race",
+                        "Elf"});
+            table1.AddRow(new string[] {
+                        "Resistance",
+                        "10"});
+#line 33
+  testRunner.And("I have the following attributes", ((string)(null)), table1, "And ");
+#line 37
+ testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+ testRunner.Then("My health should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
