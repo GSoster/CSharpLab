@@ -53,7 +53,6 @@ Scenario: Reading a restore health scroll when over tired has no effect
 		And I read a restore health scroll
 	Then My health should be 60
 
-# THIS SHOULD BE MOVED TO ANOTHER .feature
 Scenario: Total magical power
 	Given I have the followwing magical items
 	| name   | value | power |
@@ -62,7 +61,6 @@ Scenario: Total magical power
 	| Gloves | 100   | 400   |
 	Then My total magical power should be 700
 
-# THIS SHOULD BE MOVED TO ANOTHER .feature
 Scenario: Weapos are worth money
 	Given I have the following weapons
 	| name  | value |
@@ -74,7 +72,6 @@ Scenario: Weapos are worth money
 
 @elf 
 # @ignore
-# THIS SHOULD BE MOVED TO ANOTHER .feature
 Scenario: Elf race characters fon't lose magical item power
 	Given I'm an Elf
 		And I have an Amulet with a power of 200

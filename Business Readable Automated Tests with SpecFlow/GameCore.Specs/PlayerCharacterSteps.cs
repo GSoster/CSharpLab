@@ -108,9 +108,7 @@ namespace GameCore.Specs
 
 
 
-        ///
-        /// THIS SHOULD BE MOVED TO ANOTHER .feature
-        ///
+        
         [Given(@"I have the followwing magical items")]
         public void GivenIHaveTheFollowwingMagicalItems(Table table)
         {

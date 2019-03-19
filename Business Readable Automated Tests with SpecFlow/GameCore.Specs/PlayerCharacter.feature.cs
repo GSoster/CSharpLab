@@ -238,7 +238,7 @@ this.FeatureBackground();
         public virtual void TotalMagicalPower()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", null, ((string[])(null)));
-#line 57
+#line 56
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
@@ -260,9 +260,9 @@ this.FeatureBackground();
                         "Gloves",
                         "100",
                         "400"});
-#line 58
+#line 57
  testRunner.Given("I have the followwing magical items", ((string)(null)), table2, "Given ");
-#line 63
+#line 62
  testRunner.Then("My total magical power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -274,7 +274,7 @@ this.FeatureBackground();
         public virtual void WeaposAreWorthMoney()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Weapos are worth money", null, ((string[])(null)));
-#line 66
+#line 64
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
@@ -292,9 +292,9 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "Knife",
                         "10"});
-#line 67
+#line 65
  testRunner.Given("I have the following weapons", ((string)(null)), table3, "Given ");
-#line 72
+#line 70
  testRunner.Then("My weapons should be worth 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -308,18 +308,18 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race characters fon\'t lose magical item power", null, new string[] {
                         "elf"});
-#line 78
+#line 75
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line 79
+#line 76
  testRunner.Given("I\'m an Elf", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 80
+#line 77
   testRunner.And("I have an Amulet with a power of 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 81
+#line 78
  testRunner.When("I use a magical Amulet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 82
+#line 79
  testRunner.Then("The Amulet power should not be reduced", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
