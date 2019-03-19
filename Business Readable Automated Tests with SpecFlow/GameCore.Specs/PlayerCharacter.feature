@@ -18,7 +18,7 @@ Scenario Outline: Health reduction
 	| 50     | 50             |
 
 
-Scenario: Tking too much damage results in player death	
+Scenario: Taking too much damage results in player death	
 	When I take 100 damage
 	Then I should be dead
 
@@ -36,3 +36,10 @@ Scenario: Elf race characters get addtional 20 damage resistance using data tabl
 		| Resistance | 10    |
 	When I take 40 damage
 	Then My health should be 90
+
+
+Scenario: Healers restore all health
+	Given My character class is set to Healer
+	When I take 40 damage
+		And Cast a healing spell
+	Then My health should be 100
