@@ -28,5 +28,31 @@ namespace GameCore.Specs
         {
             Assert.Equal(100, _player.Health);
         }
+
+        [When(@"I take 40 damage")]
+        public void WhenITake40Damage()
+        {
+            _player.Hit(40);
+        }
+
+        [Then(@"My health should now be 60")]
+        public void ThenMyHealthShouldNowBe60()
+        {
+            Assert.Equal(60, _player.Health);
+        }
+
+
+        [When(@"I take 100 damage")]
+        public void ITake100Damage()
+        {
+            _player.Hit(100);
+        }
+
+        [Then(@"I should be dead")]
+        public void IShouldBeDead()
+        {
+            Assert.True(_player.IsDead);
+        }
+
     }
 }
