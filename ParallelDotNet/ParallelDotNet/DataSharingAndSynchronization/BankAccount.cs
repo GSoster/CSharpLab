@@ -13,5 +13,11 @@
         {
             Balance -= amount;
         }
+
+        public void Transfer(BankAccount where, int amount)
+        {
+            Balance -= amount;
+            where.Balance += amount;
+        }
     }
 }

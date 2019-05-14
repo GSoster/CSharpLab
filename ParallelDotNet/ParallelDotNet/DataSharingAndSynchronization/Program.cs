@@ -13,9 +13,13 @@ namespace DataSharingAndSynchronization
             var lockBancoAccount = new LockBankAccount();
             var interlockedBankAccount = new InterlockedBankAccount();
 
-            //
+            //SpinLock
             var bankAccount = new BankAccount();
             SpinLock sl = new SpinLock();
+
+            // MUTEX
+            var baMutex = new BankAccount();
+            Mutex mutex = new Mutex();
 
             var tasks = new List<Task>();
 
@@ -38,6 +42,18 @@ namespace DataSharingAndSynchronization
                         if (lockTaken)
                             sl.Exit();
                     }
+
+                    //Mutex Lock
+                    bool haveLock = mutex.WaitOne();
+                    try
+                    {
+                        baMutex.Deposit(100);
+                    }
+                    finally
+                    {
+                        if (haveLock)
+                            mutex.ReleaseMutex();
+                    }
                 }));
 
                 tasks.Add(Task.Factory.StartNew(() =>
@@ -57,6 +73,18 @@ namespace DataSharingAndSynchronization
                         if (lockTaken)
                             sl.Exit();
                     }
+
+                    //Mutex Lock
+                    bool haveLock = mutex.WaitOne();
+                    try
+                    {
+                        baMutex.Withdraw(100);
+                    }
+                    finally
+                    {
+                        if (haveLock)
+                            mutex.ReleaseMutex();
+                    }
                 }));
             }
 
@@ -64,6 +92,7 @@ namespace DataSharingAndSynchronization
             Console.WriteLine($"Final Balance Lock Bank Account: {lockBancoAccount.Balance}");
             Console.WriteLine($"Final Balance InterlockedBank Account: {interlockedBankAccount.Balance}");
             Console.WriteLine($"Final Balance Bank Account (Spin Lock): {bankAccount.Balance}");
+            Console.WriteLine($"Final Balance Bank Account (Mutex): {baMutex.Balance}");
         }
     }
 }
