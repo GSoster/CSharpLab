@@ -17,6 +17,12 @@
             System.Console.WriteLine("-----------");
             ChildTasksSample childTaskSample = new ChildTasksSample();
             childTaskSample.SimpleChildTaskSample();
+
+            //Barriers
+            System.Console.WriteLine("-----------");
+            System.Console.WriteLine("-----------");
+            BarrierSample barrierSample = new BarrierSample();
+            barrierSample.SimpleBarrierSample();
         }
     }
 }
