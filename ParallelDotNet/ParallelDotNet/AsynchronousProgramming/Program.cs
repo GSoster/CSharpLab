@@ -2,6 +2,11 @@
 
 namespace AsynchronousProgramming
 {
+    /// <summary>
+    /// Await DOES NOT perform a physical
+    ///
+    /// </summary>
+
     internal class Program
     {
         private static void Main(string[] args)
