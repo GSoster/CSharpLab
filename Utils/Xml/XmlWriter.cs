@@ -22,14 +22,14 @@ namespace Xml
             foreach (var property in instance.GetType().GetProperties())
             {
                 //specific to IEnumerable
-                if (property.PropertyType.GetInterfaces().Contains(typeof(IEnumerable)))
+                if (IsInstanceOfEnumerable(property))
                 {
                     //create nodo to type
                     var elem = new XElement(property.Name + Guid.NewGuid().ToString());
                     //iterate over each property from the type.
                     foreach (var item in (IEnumerable)property.GetValue(instance))
                     {
-                        AddPropertiesToXElement(instance, ref elem);
+                        //AddPropertiesToXElement(instance, ref elem);
                     }
                     //add it to the nodo
                     document.Root.Add(elem);
@@ -41,6 +41,12 @@ namespace Xml
                 else
                     AddPropertyAsElement(instance, property, document.Root);
             }
+        }
+
+        //Todo: Evaluate if it is a good idea to transform it in a extension method
+        public bool IsInstanceOfEnumerable(PropertyInfo property)
+        {
+            return property.PropertyType.GetInterfaces().Contains(typeof(IEnumerable));
         }
 
         public void AddPropertiesToXElement(object instance, ref XElement element)
