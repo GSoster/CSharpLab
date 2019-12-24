@@ -8,4 +8,7 @@ A repository to store my C# codes and annotations
   
 - [x] **CSharpJumpStart**: Group of codes and samples from the Microsoft course: programming in C Sharp Jump start. [link](https://mva.microsoft.com/en-us/training-courses/programming-in-c-jump-start-14254)  
   
+- [x] **PluginApp**: An app that support the addition of pluggins by just dropping them on the /plugin folders. It uses a custom-created PluginProvider singleton
+
 - [ ] **PhotoGallery**: A simple WPF project that allows to load pictures, add them to collections (albums), tag albums and individual pictures and search by picture/collection/tag name. Work still in progress.
+
