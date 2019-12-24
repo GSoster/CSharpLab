@@ -16,3 +16,5 @@ A repository to store my C# codes and annotations
 
 - [ ] **PhotoGallery**: A simple WPF project that allows to load pictures, add them to collections (albums), tag albums and individual pictures and search by picture/collection/tag name. Work still in progress.
 
+- [ ] **CSharp RPG**: code for my own implementation of the awesome series of posts by [scottlilly](http://scottlilly.com/)
+
