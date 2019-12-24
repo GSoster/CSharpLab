@@ -10,5 +10,7 @@ A repository to store my C# codes and annotations
   
 - [x] **PluginApp**: An app that support the addition of pluggins by just dropping them on the /plugin folders. It uses a custom-created PluginProvider singleton
 
+- [x] **Utils**: Collection of useful classes (that I didn't want to transform in a shared lib). Some classes to work with xml by using reflection..etc
+
 - [ ] **PhotoGallery**: A simple WPF project that allows to load pictures, add them to collections (albums), tag albums and individual pictures and search by picture/collection/tag name. Work still in progress.
 
