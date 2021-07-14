@@ -53,3 +53,155 @@ A DTO may be used to:
 - Hide properties that clients are not supposed to view.
 - Omit some properties in order to reduce payload size.
 - Flatten object graphs that contain nested objects. Flattened object graphs can be more convenient for clients.
+
+
+# Controllers
+
+Attributes are used to describe which HTTP Method is used to activate the ActionMethod
+```cs
+[HttpGet]
+public string[] GetDishes() 
+{
+	string[] dishes = { "vaca atolada", "lasanha"};
+	return dishes;
+}
+
+```
+
+## Web API CRUD Conventions
+
+| Action | Method | Success | Failure | 
+|---|---|---|---|
+| Create  | POST  |  201(Created) | 400 (Bad request)  |
+| Read  | GET  | 200(Ok)  | 404(Not Found)  |
+| Update  | PUT/PATCH  | 204 (No Content)  | 404 (Not Found)  |
+| Delete  | DELETE  | 204 (No Content)  |  400 (Bad Request) |
+
+To Update a document two ways are possible: Put or Patch. Put will replace the entire document while patch wil replace a specific portion of the document.
+Patch is not active by default in AspNet Core, To use Patch it is necessary to add nuget-packages: `Microsoft.AspNetCore.JsonPatch` and `Microsoft.AspNetCore.Mvc.NewtonSoftJson`.
+Then on the Startup ConfigureServices add `AddNewtonsoftJson`:
+```cs
+public void ConfigureServices(IServiceCollection services)
+{
+
+	services.AddControllers().AddNewtonsoftJson();
+}
+```
+
+Then on the controller, include the patch:
+```cs
+public class RecipesController : ControllerBase {
+	[HttpPatch("{id}")]
+	public async Task<ActionResult> UpdateRecipe(string int, JsonPatchDocument<Recipe> recipeUpdates)
+	{
+		var recipe = await _recipeData.GetRecipeById(id);
+		if (recipe is null)
+			return NotFound();
+		
+		recipeUpdates.ApplyTo(recipe);
+		await _recipeData.UpdateRecipe(recipe);
+		return NoContent();
+	}
+}
+```
+
+a patch document `JsonPatchDocument<Recipe>` payload to update a recipe`s title would look like:  
+```json
+[
+	{
+		"path": "/title",
+		"op": "replace",
+		"value": "My new recipe title"
+	}
+]
+```
+
+
+### Helper Methods from ApiController Attribute
+| Method | Status Code | Parameter |
+|---|---|---|
+| Ok() | 200 | value to be returned..| 
+| NoContent()| 204 | - | 
+| NotFound()| 404| - |
+|Created()| ?? | 1, 2|
+
+TODO: completar essa tabela!!
+
+
+## Routing
+
+URL `https://graph.microsoft.com/v1.0/me` is composde of: 
+> Scheme `https://`  
+> host name: `graph.microsoft.com`  
+> path: `/v1.0/me`  
+
+The recommended way to apply routing to ASPNET Core WebAPIs is through Attributes.  
+We can controll the routing in the controller level, as demonstrated below
+```cs
+[Route("api/[controller]")] //our controller will listen to anything that comes from the path /api/recipes
+//[Route("api/recipes")] //this also works and can be used when we want a different class name from the path
+[ApiController]
+public class RecipesController : ControllerBase {}
+```
+
+and also controll routing it at method level:
+```cs
+[Route("api/[controller]")]
+[ApiController]
+public class RecipesController : ControllerBase 
+{
+	//this would make the method be activated by calling /api/recipes/all
+	[HttpDelete("all")]
+	pubic ActionResult DeleteRecipes() 
+	{
+		//...
+	}
+
+	//we can also define tokens of variables we want to receive:
+	[HttpDelete("{id}}")] //api/recipes/1
+	pubic ActionResult DeleteRecipe(string id) // the framework automagically maps the token to the parameter with same name
+	{
+		//...
+	}
+}
+```
+
+## Return Types - Action Results
+
+ActionResult allow us to return our data and configure which status-code we want to return.
+
+## Binding - pull information from the http-request
+
+Binding Sources
+
+| Source | Attribute |
+|---|---|
+| Request Body | [FromBody] |
+| From data in the request body | [FromForm] |
+| Headers | [FromHeader] |
+| Query string parameter | [FromQuery] |
+
+```cs
+[HttpGet]
+public ActionResult GetRecipes([FromQuery] int count)
+{
+	string[] recipes = { "vaca atolada", "lasanha"};
+	return Ok(recipes.Take(count));
+}
+```
+
+## Validate HTTP Request Payloads
+
+There are built-in validation attributes inside AspNetCore `System.ComponentModel.DataAnnotations`, some are:
+- Required
+- MaxLenght
+- MinLength
+- Phone
+- Email
+- CreditCard
+- Range
+- Compare
+
+Problem Details for HTTP APIs, RFC 7807 is already configured in AspNetCore
+https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?WT.mc_id=beginwebapis-c9-cephilli&view=aspnetcore-3.1
+
