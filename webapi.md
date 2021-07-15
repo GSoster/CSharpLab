@@ -205,3 +205,40 @@ There are built-in validation attributes inside AspNetCore `System.ComponentMode
 Problem Details for HTTP APIs, RFC 7807 is already configured in AspNetCore
 https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?WT.mc_id=beginwebapis-c9-cephilli&view=aspnetcore-3.1
 
+
+## Handling Exceptions
+
+We can create a Controller specifically to handle exceptions, as shown in: https://www.youtube.com/watch?v=DkEwPquIurI&list=PLdo4fOcmZ0oVjOKgzsWqdFVvzGL2_d72v&index=14
+
+## OpenAPI / Swagger
+
+To display documentation on Swagger it is necessary to enable XML documentatino on the project, more info: https://www.youtube.com/watch?v=IBw3ONR1d7E&list=PLdo4fOcmZ0oVjOKgzsWqdFVvzGL2_d72v&index=15  
+To display status code / return types of an Action Method inside a controller we need to add a few attributes.  
+First, add `[Consumes(MediaTypeNames.Application.Json)]`and `[Produces(MediaTypeNames.Application.Json)]` to the controller.  
+Then add `[ProducesResponseType(StatusCodes.Status200Ok)]` or another status code to the Action Method. Ex.:  
+
+```cs
+
+[Route("api/[controller]")]
+[Produces(MediaTypeNames.Application.Json)]
+[Consumes(MediaTypeNames.Application.Json)]
+[ApiController]
+public class RecipesController : ControllerBase
+{
+
+	[HttpGet("{id}")]
+	[ProducesResponseType(StatusCodes.Status200Ok)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public async Task<ActionResult> GetRecipeById(string id)
+	{
+		//...code
+	}
+
+}
+```
+
+## Unit Testing Controllers
+
+Great explanation on how to use _FakeItEasy_ to mock controller dependencies.  
+https://www.youtube.com/watch?v=RgoytbbYbr8&list=PLdo4fOcmZ0oVjOKgzsWqdFVvzGL2_d72v&index=18
+Also, more documentation on how to do it:  https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/testing?WT.mc_id=beginwebapis-c9-cephilli&view=aspnetcore-3.1
