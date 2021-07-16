@@ -77,6 +77,8 @@ public string[] GetDishes()
 | Update  | PUT/PATCH  | 204 (No Content)  | 404 (Not Found)  |
 | Delete  | DELETE  | 204 (No Content)  |  400 (Bad Request) |
 
+> SOFT DELETE is actually an update where we change a flag, not a DELETE HTTP operation
+
 To Update a document two ways are possible: Put or Patch. Put will replace the entire document while patch wil replace a specific portion of the document.
 Patch is not active by default in AspNet Core, To use Patch it is necessary to add nuget-packages: `Microsoft.AspNetCore.JsonPatch` and `Microsoft.AspNetCore.Mvc.NewtonSoftJson`.
 Then on the Startup ConfigureServices add `AddNewtonsoftJson`:
