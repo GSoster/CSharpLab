@@ -117,14 +117,15 @@ a patch document `JsonPatchDocument<Recipe>` payload to update a recipe`s title 
 ```
 
 
-### Helper Methods from ApiController Attribute
+### Helper Methods from ApiController Attribute / ControllerBase
 | Method | Status Code | Parameter |
 |---|---|---|
 | Ok() | 200 | value to be returned..| 
+|CreatedAt()|201|??|
 | NoContent()| 204 | - | 
+|Bad Request| 400| | 
 | NotFound()| 404| - |
 |Created()| ?? | 1, 2|
-
 TODO: completar essa tabela!!
 
 
@@ -168,7 +169,24 @@ public class RecipesController : ControllerBase
 
 ## Return Types - Action Results
 
-ActionResult allow us to return our data and configure which status-code we want to return.
+ActionResult allow us to return our data and configure which status-code we want to return.  
+We should Return IActionResult because the ActionResult return type isn't known until runtime. Like on Update or Delete examples:  
+```cs
+[HttpPut("{id}")]
+        //Returns IActionResult because the ActionResult return type isn't known until runtime.
+        public IActionResult UpdatePizza(int id, Pizza pizza)
+        {
+            if (id != pizza.Id)
+                return BadRequest();
+            
+            var existingPizza = PizzaService.Get(id);
+            if (existingPizza is null)
+                return NotFound();
+
+            PizzaService.Update(pizza);
+            return NoContent();
+        }
+```
 
 ## Binding - pull information from the http-request
 
