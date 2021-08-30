@@ -169,6 +169,67 @@ public class RecipesController : ControllerBase
 }
 ```
 
+How to pass multiple parameters with GET method: https://www.telerik.com/blogs/how-to-pass-multiple-parameters-get-method-aspnet-core-mvc
+
+### Passing Multiple Parameters Using FromRouteAttribute
+
+```cs
+//GET method
+//single parameter
+public IActionResult Get(int id)
+
+//multiple parameter
+[HttpGet("{id}/{backendOnly}")]
+public IActionResult Get(int id, string backendOnly)
+
+//multiple parameters
+[HttpGet("{id}/{first}/{second}")]
+public IActionResult Get(int id, string first, string second)
+
+//USAGE
+//GET request using route data
+https://localhost:44363/2
+https://localhost:44363/2/first
+https://localhost:44363/2/first/second
+```
+
+### Passing Multiple Parameters Using FromQuery
+
+```cs
+//GET method
+//single parameter
+[HttpGet("details")]
+public IActionResult Details(int id)
+
+//multiple parameter
+[HttpGet("details")]
+public IActionResult Details(int id, string first)
+
+//multiple parameters
+[HttpGet("details")]
+public IActionResult Details(int id, string first, string second)
+
+//USAGE
+
+//GET request using query parameters
+https://localhost:44363/details?id=2
+https://localhost:44363/details?id=2&&first=csharp
+https://localhost:44363/details?id=2&&first=csharp&&second=mvc
+```
+### Pass Multiple Parameters Using Both FromRouteAttribute, FromQuery
+
+```cs
+
+// GET method
+[HttpGet("id")]
+public IActionResult BothDetails(int id, string backendOnly, string frontendOnly)
+
+//USAGE
+// GET request using both ways
+https://localhost:44363/3?backendOnly=csharp&&frontendOnly=angular
+
+``` 
+
 ## Return Types - Action Results
 
 ActionResult allow us to return our data and configure which status-code we want to return.  
